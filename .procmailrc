@@ -1,0 +1,24 @@
+# USER=noah# TMPDIR=/tmp/$USER
+# LOGFILE=$TMPDIR/logfile
+# MAILDIR=$TMPDIR/procmail.out
+# DEFAULT=$MAILDIR/$USER
+PATH=/bin:/usr/bin:/usr/local/bin
+MAILDIR=$HOME/Mail
+PMDIR=$MAILDIR
+LOGFILE=$PMDIR/procmail.log
+LOGABSTRACT=NONE
+SHELL=/bin/sh
+VERBOSE=NONE
+DISPLAY=":0"
+
+
+:0
+*^content-Type:
+{
+  # # make a backup of the raw mail messages
+  :0c:
+  /drum/misc/backup/ns_cache_mail
+
+  :0fw
+  | /usr/local/bin/ns_cache.py >> $PMDIR/ns_cache.log 2>&1
+} 

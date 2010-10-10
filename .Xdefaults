@@ -1,0 +1,52 @@
+! urxvt*background:black
+URxvt.internalBorder:   0
+URxvt.externalBorder:   0
+URxvt.urgentOnBell:             true
+URxvt.cursorBlink:              true
+URxvt.cursorColor:             green
+!urxvt*background: rgba:1111/1111/1111/dddd
+urxvt*boldColors:on
+urxvt*boldFont:xft:liberation mono:pixelsize=14
+urxvt*font:xft:liberation mono:pixelsize=14
+urxvt*buffered:true
+urxvt*depth:32
+urxvt*fading:0
+urxvt*shading:0
+urxvt*visualBell:false
+urxvt*background:#111111
+urxvt*foreground:#eeeeee
+urxvt*inheritPixmap:true
+urxvt*borderLess:false
+urxvt*:scrollTtyKeypress: true
+urxvt*transparent:false
+
+urxvt*jumpScroll:true
+urxvt*loginShell:true
+urxvt*saveLines:65535
+urxvt*scrollBar_right:true
+urxvt*scrollBar:false
+urxvt*scrollstyle:plain
+urxvt*scrollTtyKeypress:    true
+urxvt*scrollTtyOutput:      false
+urxvt*scrollWithBuffer:     true
+urxvt*termName: rxvt-256color
+urxvt*transparentscrollbar:true
+urxvt*transpscrollbar:true
+
+Xft.antialias: true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+! hyperlinks
+urxvt.perl-ext:           default,matcher
+urxvt*urlLauncher:firefox
+urxvt.matcher.button:     1
+urxvt.keysym.C-Delete:    perl:matcher
+urxvt.underlineURLs:      true
+
+
+#include "/home/noah/.colors/gnome"
+!#include "/home/noah/.colors/bright"
+!#include "/home/noah/.colors/soft"
+!#include "/home/noah/.colors/dark"
