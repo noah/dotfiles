@@ -62,8 +62,7 @@ tag_names =
 
 -- number the tag names
 for T = 1, table.getn(tag_names) do
-  prefix = "[" .. T .. "]"
-  tag_names[T] = (prefix .. tag_names[T])
+  tag_names[T] = (T .. " " .. tag_names[T])
 end
 
 -- Define a tag table which hold all screen tags.
@@ -256,9 +255,9 @@ globalkeys = awful.util.table.join(
 
     -- winamp-style hotkeys, baby!
     awful.key({ modkey, "Control", }, "Up", function () awful.util.spawn("amixer -q set Master 1%+",false)end),
-    awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set Master 0%-",false)end),
-    awful.key({ modkey, "Control", }, "Right", function () awful.util.spawn("cmus-remote --next",false)end),
-    awful.key({ modkey, "Control", }, "Left", function () awful.util.spawn("cmus-remote --prev",false)end),
+    awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set Master 1%-",false)end),
+    awful.key({ modkey, "Control", }, "Next", function () awful.util.spawn("cmus-remote --next",false)end),
+    awful.key({ modkey, "Control", }, "Prior", function () awful.util.spawn("cmus-remote --prev",false)end),
 
     -- Prompt
     awful.key({ modkey },     "p",     function () mypromptbox[mouse.screen]:run() end),
