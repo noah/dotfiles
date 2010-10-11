@@ -3,6 +3,8 @@ defutf8 on
 #shelltitle '$ |bash'
 defscrollback 100000
 
+vbell off
+
 # Make shift-PgUp and shift-PgDn work like they do in xterm.  (Note that this
 # requires xterm to be configured to pass those keys through, and not try to
 # act on them itself.)
@@ -13,10 +15,7 @@ bindkey -m "^[[6;2~" stuff ^d
 term screen-256color
 terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
-# terminfo and termcap for nice 256 color terminal
-# allow bold colors - necessary for some reason
-attrcolor b ".I"
-# tell screen how to set colors. AB = background, AF=foreground
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-# erase background with current bg color
-defbce "on" 
+screen su -
+screen zsh
+screen cmus
+screen rexima

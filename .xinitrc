@@ -1,17 +1,29 @@
 #!/bin/sh
 
-xrdb -merge $HOME/.Xdefaults
+# Load your X Resource defaults, if you have them...
+
+if [ -f $HOME/.Xdefaults ]; then
+    xrdb -merge $HOME/.Xdefaults
+fi
+
+if [ -f $HOME/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
 
 #xscreensaver -no-splash &
-#gnome-power-manager&
-
 gnome-settings-daemon&
+gnome-power-manager&
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
+# /usr/bin/feh --bg-seamless /home/noah/lauves.jpg
 
-urxvtd -q -f -o
-xcompmgr &
-#exec wmii
-#exec startkde
-exec awesome
-#exec gnome-session
+#X_SESS=gnome-session
+#X_SESS=dwm
+#X_SESS=startkde
+#X_SESS=wmii
+X_SESS=awesome
+
+echo "DISPLAY: $DISPLAY"
+echo "tty: $(tty)"
+echo "starting $X_SESS"
+exec $X_SESS
