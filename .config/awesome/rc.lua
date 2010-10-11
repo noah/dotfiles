@@ -9,7 +9,7 @@ require("naughty")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/esq/theme.lua")
+beautiful.init("/home/noah/.config/awesome/themes/esq/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
