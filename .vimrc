@@ -42,7 +42,7 @@ set ruler
 set number      
 " set background=light
 " font
-set guifont=DejaVu\ Sans\ Mono\ 8
+set guifont=Liberation\ Mono\ 8
 " window title
 set title
 
