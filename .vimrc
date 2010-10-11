@@ -54,10 +54,10 @@ syntax on                   " syntax highlighting on
 " colorscheme inkpot
 " colorscheme ir_black
 " colorscheme jellybeans
-" colorscheme summerfruit256
+colorscheme summerfruit256
 " colorscheme up
 " colorscheme vilight
-colorscheme xoria256
+" colorscheme xoria256
 
 set showmatch             " show matching paren when bracked inserted
 
