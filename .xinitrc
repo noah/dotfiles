@@ -10,7 +10,6 @@ autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
 
 urxvtd -q -f -o
-xcompmgr &
 #exec wmii
 #exec startkde
 exec awesome

@@ -258,6 +258,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set Master 1%-",false)end),
     awful.key({ modkey, "Control", }, "Next", function () awful.util.spawn("cmus-remote --next",false)end),
     awful.key({ modkey, "Control", }, "Prior", function () awful.util.spawn("cmus-remote --prev",false)end),
+    awful.key({ modkey, "Control", }, "Home", function () awful.util.spawn("cmus-remote --pause",false)end),
 
     -- Prompt
     awful.key({ modkey },     "p",     function () mypromptbox[mouse.screen]:run() end),

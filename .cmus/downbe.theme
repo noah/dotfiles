@@ -1,9 +1,13 @@
+# command line bg
 set color_cmdline_bg=default
+# command line fg
 set color_cmdline_fg=default
-
+# error color
 set color_error=lightred
+# info color
 set color_info=default
-set color_separator=blue
+#
+set color_separator=red
 
 # the bar with > elapsed/remaining - total vol: n
 set color_statusline_bg=black
@@ -22,7 +26,7 @@ set color_win_title_fg=white
 # fg playing track, w/o cursor
 set color_win_cur=white
 # bg playing track, w/o cursor
-set color_win_bg=black
+set color_win_bg=default
 # fg playing track, w/cursor
 set color_win_cur_sel_fg=white
 # bg playing track, w/cursor
