@@ -44,7 +44,7 @@ urxvt.keysym.C-Delete:    perl:matcher
 urxvt.underlineURLs:      true
 
 
-!#include "/home/noah/.colors/gnome"
+#include "/home/noah/.colors/gnome"
 !#include "/home/noah/.colors/bright"
 !#include "/home/noah/.colors/soft"
-#include "/home/noah/.colors/dark"
+!#include "/home/noah/.colors/dark"
