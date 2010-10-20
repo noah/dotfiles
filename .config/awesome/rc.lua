@@ -42,11 +42,28 @@ layouts =
 -- }}}
 
 -- {{{ Tags
+tag_names = 
+{
+  "term", 
+  "web", 
+  "dev", 
+  "scrap",
+  "downbe",
+  "uchicago",
+  "kent",
+}
+
+-- number the tag names
+for T = 1, table.getn(tag_names) do
+  tag_names[T] = (T .. " " .. tag_names[T])
+end
+
 -- Define a tag table which hold all screen tags.
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    -- tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag(tag_names, s, layouts[1])
 end
 -- }}}
 
@@ -166,8 +183,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
-    awful.key({ modkey, "Control", }, "Up", function () awful.util.spawn("amixer -q set Master 1%+",false)end),
-    awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set Master 1%-",false)end),
+    awful.key({ modkey, "Control", }, "Up", function () awful.util.spawn("amixer -q set PCM 1%+",false)end),
+    awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set PCM 1%-",false)end),
     awful.key({ modkey, "Control", }, "Next", function () awful.util.spawn("cmus-remote --next",false)end),
     awful.key({ modkey, "Control", }, "Prior", function () awful.util.spawn("cmus-remote --prev",false)end),
 

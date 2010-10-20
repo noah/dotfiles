@@ -7,7 +7,7 @@ if [ -f $HOME/.Xdefaults ]; then
 fi
 
 if [ -f $HOME/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
+    exec /usr/bin/xmodmap ~/.Xmodmap&
 fi
 
 #xscreensaver -no-splash &
