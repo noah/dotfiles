@@ -10,10 +10,12 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+config_dir = awful.util.getdir("config")
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/home/noah/.config/awesome/themes/downbe/theme.lua")
+beautiful.init(config_dir .. "/themes/downbe/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -399,8 +401,8 @@ function yaourt_updates()
 end
 
 function cmus_status()
-        local c = awful.util.pread("/home/noah/.config/awesome/scripts/cmus_status.sh")
-        return 'cmus ' .. c
+        local c = awful.util.pread(config_dir .. "/scripts/cmus_status.sh")
+        return ' cmus ' .. c
 end
 
 -- function rtorrent_status()
