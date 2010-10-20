@@ -1,0 +1,13 @@
+" move in page
+noremap j 5j
+noremap k 5k
+noremap J <C-d>
+noremap K <C-u>
+
+set hlsearch
+set showstatuslinks=2
+
+" disable beep
+javascript liberator.beep = function() { return false; }
+
+" vim:ft=vimrc
