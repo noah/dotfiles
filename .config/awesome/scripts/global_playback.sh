@@ -22,5 +22,18 @@ HOST=localhost
 PORT=9090
 player_id="00:04:20:12:97:e5"
 
-[[ $1 == "next" ]] && operator="+" || operator="-"
-(echo "$player_id playlist index ${operator}1"; sleep 1)|telnet $HOST $PORT
+case $1 in 
+  "next")
+    playlist_cmd="index +1"
+    (echo "$player_id playlist index +1"; sleep 1)|telnet $HOST $PORT
+    ;;
+  "prev")
+    (echo "$player_id playlist index -1"; sleep 1)|telnet $HOST $PORT
+    ;;
+  "pause")
+    (echo "$player_id pause"; sleep 1)|telnet $HOST $PORT
+    ;;
+  *)
+    exit 1
+    ;;
+esac
