@@ -11,6 +11,8 @@ require("beautiful")
 require("naughty")
 
 config_dir = awful.util.getdir("config")
+-- lua join()
+script_dir = table.concat({config_dir, "scripts"}, "/")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -256,11 +258,19 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot")end),
 
     -- winamp-style hotkeys, baby!
-    awful.key({ modkey, "Control", }, "Up", function () awful.util.spawn("amixer -q set Master 1%+",false)end),
-    awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set Master 1%-",false)end),
-    awful.key({ modkey, "Control", }, "Next", function () awful.util.spawn("cmus-remote --next",false)end),
-    awful.key({ modkey, "Control", }, "Prior", function () awful.util.spawn("cmus-remote --prev",false)end),
-    awful.key({ modkey, "Control", }, "Home", function () awful.util.spawn("cmus-remote --pause",false)end),
+    --
+    -- Up:      Num Pad up
+    -- Down:    Num Pad down
+    awful.key({ modkey, "Control", }, "Up",     function () awful.util.spawn(script_dir .. "/global_adjust_volume.sh +",false)end),
+    awful.key({ modkey, "Control", }, "Down",   function () awful.util.spawn(script_dir .. "/global_adjust_volume.sh -",false)end),
+
+    -- playlist
+    -- Next:    Page Down
+    -- Prior:   Page Up
+    -- Home:    Home key
+    awful.key({ modkey, "Control", }, "Next",   function () awful.util.spawn(script_dir .. "/global_playback.sh next",false)end),
+    awful.key({ modkey, "Control", }, "Prior",  function () awful.util.spawn(script_dir .. "/global_playback.sh prev",false)end),
+    awful.key({ modkey, "Control", }, "Home",   function () awful.util.spawn(script_dir .. "/global_playback.sh pause",false)end),
 
     -- Prompt
     awful.key({ modkey },     "p",     function () mypromptbox[mouse.screen]:run() end),
@@ -401,7 +411,7 @@ function yaourt_updates()
 end
 
 function cmus_status()
-        local c = awful.util.pread(config_dir .. "/scripts/cmus_status.sh")
+        local c = awful.util.pread(script_dir .. "/cmus_status.sh")
         return ' cmus ' .. c
 end
 

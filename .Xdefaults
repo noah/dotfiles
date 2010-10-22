@@ -1,9 +1,13 @@
 ! "padding"
-URxvt.internalBorder:   6 
-URxvt.externalBorder:   0
-URxvt.urgentOnBell:             true
-URxvt.cursorBlink:              true
-URxvt.cursorColor:             green
+urxvt.internalBorder:   6 
+urxvt.externalBorder:   0
+urxvt.urgentOnBell:             true
+urxvt.cursorBlink:              true
+urxvt.cursorColor:             black
+urxvt.cursorColor2:             white
+urxvt.cursorUnderline: true
+urxvt.underlineColor: yellow
+
 urxvt*boldColors:on
 urxvt*buffered:true
 urxvt*depth:32

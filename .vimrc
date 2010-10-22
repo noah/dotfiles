@@ -197,6 +197,8 @@ filetype plugin indent on
 let g:GPGUseAgent = 1
 
 if has("gui_running")
-  set guifont=DejaVu\ Sans\ Mono\ 11
+  set guifont=Liberation\ Mono\ 10
+  colorscheme wombat256
+  set background=dark
 endif
 
