@@ -62,8 +62,8 @@ urxvt.underlineURLs:      true
 
 ! fg/bg
 urxvt*highlightColor:#444
-*background: #000
-*foreground: #fff
+urxvt*background: #000
+urxvt*foreground: #d3d3d3
 
 ! theme
 !#include "/home/noah/.colors/tango"

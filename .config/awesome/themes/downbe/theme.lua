@@ -1,5 +1,5 @@
 ---------------------------
--- my awesome theme --
+-- downbe awesome theme --
 ---------------------------
 
 config_dir = awful.util.getdir("config")
@@ -9,12 +9,11 @@ theme = {}
 theme.font          = "liberation mono 9"
 
 -- default color
-theme.bg_normal     = "#eeeeec"
-theme.fg_normal     = "#3465a4"
-
--- color of a focused window
-theme.bg_focus      = theme.fg_normal
-theme.fg_focus      = theme.bg_normal
+--
+--  text color of selected stuff
+theme.bg_normal     = "#141414"
+--  background color of selected stuff
+theme.fg_normal     = "#d3d3d3"
 
 -- urgent color
 theme.fg_urgent     = "#ffffff"
@@ -22,7 +21,7 @@ theme.bg_urgent     = "#ff0000"
 
 -- minimized window
 theme.bg_minimize   = "#444444"
-theme.fg_minimize   = "#ffffff"
+theme.fg_minimize   = "#000000"
 
 -- borders
 theme.border_width  = "1"
@@ -33,12 +32,12 @@ theme.border_focus  = "#141414"
 theme.border_marked = "#ff0000"
 
 -- taskbar (overrides theme.*_normal
-theme.tasklist_bg_focus = theme.fg_normal
-theme.tasklist_fg_focus = theme.bg_normal
+-- theme.tasklist_bg_focus = "#ff0000"
+-- theme.tasklist_fg_focus = "#ee0000"
 
 -- the selected tag
-theme.taglist_bg_focus = theme.fg_normal
-theme.taglist_fg_focus = theme.bg_normal
+theme.taglist_bg_focus = "#3465a4"
+theme.taglist_fg_focus = "#ffffff"
 
 -- urgent tag
 theme.taglist_bg_urgent = "#ff0000"
@@ -55,8 +54,8 @@ theme.taglist_fg_urgent = "#ffffff"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Display the taglist squares
-theme.taglist_squares_sel   = config_dir .. "/themes/downbe/taglist/squarefw_dark.png"
-theme.taglist_squares_unsel = config_dir .. "/themes/downbe/taglist/squarew_dark.png"
+theme.taglist_squares_sel   = config_dir .. "/themes/downbe/taglist/squarefw.png"
+theme.taglist_squares_unsel = config_dir .. "/themes/downbe/taglist/squarew.png"
 theme.tasklist_floating_icon = config_dir .. "/themes/downbe/tasklist/floatingw.png"
 
 -- Variables set for theming the menu:
