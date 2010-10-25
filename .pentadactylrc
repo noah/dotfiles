@@ -23,7 +23,7 @@ set hlsearch
 set maxitems=5
 "
 " show link destination on hover
-set showstatuslinks=2
+set showstatuslinks=1
 "
 " when to show list of tabs at top
 set showtabline=1
