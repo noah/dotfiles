@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"      Display
+"      Sounds & Display
 "
 "
 " B Bookmark bar
@@ -27,6 +27,9 @@ set showstatuslinks=1
 "
 " when to show list of tabs at top
 set showtabline=1
+"
+"disable beep
+javascript liberator.beep = function() { return false; }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
