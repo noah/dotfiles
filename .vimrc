@@ -48,7 +48,7 @@ filetype plugin indent on
 set t_Co=256                    " use 256 terminal colors
 set background=dark             " background color
 syntax on                       " syntax highlighting on
-colorscheme 256-grayvim
+" colorscheme 256-grayvim
 " colorscheme lettuce
 " colorscheme 256-jungle
 " colorscheme desert256
@@ -59,7 +59,7 @@ colorscheme 256-grayvim
 " colorscheme summerfruit256
 " colorscheme up
 " colorscheme vilight
-" colorscheme xoria256
+colorscheme xoria256
 
 set showmatch             " show matching paren when bracked inserted
 
