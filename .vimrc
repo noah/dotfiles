@@ -47,8 +47,9 @@ filetype plugin on
 set t_Co=256
 set background=dark
 syntax on                   " syntax highlighting on
-colorscheme lettuce
 set showmatch             " show matching paren when bracked inserted
+colorscheme 256-grayvim
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Movement
@@ -127,7 +128,7 @@ set foldmethod=manual     " manual, marker, syntax, try set foldcolumn=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cmdwinheight=20       " use 20 screen lines for command-line window
+set cmdwinheight=10       " use 20 screen lines for command-line window
 " always open command line window
 nnoremap : q:i
 nnoremap / q/i
@@ -153,12 +154,6 @@ set expandtab
 set autoindent
 " Number of spaces to use for autoindent (and >> <<)
 set shiftwidth=2
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -187,4 +182,4 @@ let g:GPGUseAgent = 1
 if has("gui_running")
   set guifont=DejaVu\ Sans\ Mono\ 11
 endif
-set spell spelllang=en_us
+
