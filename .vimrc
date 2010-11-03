@@ -190,3 +190,6 @@ filetype plugin indent on
 
 " GPG Stuff
 let g:GPGUseAgent = 1
+
+" set colorscheme conditionally for certain types of files
+au BufRead,BufNewFile *.otl             colorscheme vo_dark
