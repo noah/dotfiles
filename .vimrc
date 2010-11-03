@@ -10,7 +10,7 @@
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible        " use vim defaults (not vi); !MUST BE FIRST LINE!
-set novb t_vb=            " neither bell nor vbell
+set vb t_vb=            " neither bell nor vbell
 set number              " line numbers on
 set mouse=a             " enable mouse in all modes
 set fileencoding=utf-8 
@@ -47,18 +47,13 @@ filetype plugin on
 set t_Co=256
 set background=dark
 syntax on                   " syntax highlighting on
-colorscheme 256-grayvim
-" colorscheme lettuce
-" colorscheme 256-jungle
-" colorscheme desert256
-" colorscheme gardener
-" colorscheme inkpot
-" colorscheme tir_black
-" colorscheme jellybeans
-" colorscheme summerfruit256
-" colorscheme up
-" colorscheme vilight
-" colorscheme xoria256
+"colorscheme 256-jungle
+"colorscheme summerfruit256
+"colorscheme desert256
+"colorscheme gardener
+"colorscheme inkpot
+"colorscheme ir_black
+colorscheme xoria256
 
 set showmatch             " show matching paren when bracked inserted
 
@@ -83,7 +78,6 @@ if bufwinnr(1)
   map - <C-W>-
   map + <C-W>+
 endif
-
 set splitbelow " split new vertical buffers beneath current buffer
 set splitright " split new horizontal buffers to the right of current buffer
 
@@ -169,7 +163,7 @@ set shiftwidth=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -195,10 +189,3 @@ filetype plugin indent on
 
 " GPG Stuff
 let g:GPGUseAgent = 1
-
-if has("gui_running")
-  set guifont=Liberation\ Mono\ 10
-  colorscheme wombat256
-  set background=dark
-endif
-

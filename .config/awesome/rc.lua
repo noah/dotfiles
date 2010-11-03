@@ -6,18 +6,14 @@ require("awful.rules")
 require("beautiful")
 
 -- tagging
--- require("eminent")
+require("eminent")
 -- Notification library
 require("naughty")
-
-config_dir = awful.util.getdir("config")
--- lua join()
-script_dir = table.concat({config_dir, "scripts"}, "/")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init(config_dir .. "/themes/downbe/theme.lua")
+beautiful.init("/home/noah/.config/awesome/themes/downbe/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -51,30 +47,12 @@ layouts =
 -- }}}
 
 -- {{{ Tags
-tag_names = 
-{
-  "term", 
-  "web", 
-  "dev", 
-  "scrap",
-  "uchicago",
-  "kent",
-  "mutt",
-  "rtorrent",
-  "logs" 
-}
-
--- number the tag names
-for T = 1, table.getn(tag_names) do
-  tag_names[T] = (T .. " " .. tag_names[T])
-end
-
 -- Define a tag table which hold all screen tags.
 tags = {}
 for s = 1, screen.count() do
-    tags[s] = awful.tag(tag_names, s, layouts[1])
+    -- Each screen has its own tag table.
+    tags[s] = awful.tag({ "term", "web", "dev", "scrap"}, s, layouts[1])
 end
-
 -- }}}
 
 -- {{{ Menu
@@ -213,8 +191,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey, "Control" }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey, "Control" }, "Right",  awful.tag.viewnext       ),
+    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
+    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
     awful.key({ modkey,           }, "j", function ()
             awful.client.focus.byidx( 1)
@@ -256,21 +234,8 @@ globalkeys = awful.util.table.join(
 
     -- keybindings
     awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot")end),
-
-    -- winamp-style hotkeys, baby!
-    --
-    -- Up:      Num Pad up
-    -- Down:    Num Pad down
-    awful.key({ modkey, "Control", }, "Up",     function () awful.util.spawn(script_dir .. "/global_adjust_volume.sh +",false)end),
-    awful.key({ modkey, "Control", }, "Down",   function () awful.util.spawn(script_dir .. "/global_adjust_volume.sh -",false)end),
-
-    -- playlist
-    -- Next:    Page Down
-    -- Prior:   Page Up
-    -- Home:    Home key
-    awful.key({ modkey, "Control", }, "Next",   function () awful.util.spawn(script_dir .. "/global_playback.sh next",false)end),
-    awful.key({ modkey, "Control", }, "Prior",  function () awful.util.spawn(script_dir .. "/global_playback.sh prev",false)end),
-    awful.key({ modkey, "Control", }, "Home",   function () awful.util.spawn(script_dir .. "/global_playback.sh pause",false)end),
+    awful.key({ modkey, "Control", }, "u", function () awful.util.spawn("amixer -q set Master 1%+",false)end),
+    awful.key({ modkey, "Control", }, "d", function () awful.util.spawn("amixer -q set Master 1%-",false)end),
 
     -- Prompt
     awful.key({ modkey },     "p",     function () mypromptbox[mouse.screen]:run() end),
@@ -411,8 +376,8 @@ function yaourt_updates()
 end
 
 function cmus_status()
-        local c = awful.util.pread(script_dir .. "/cmus_status.sh")
-        return ' cmus ' .. c
+        local c = awful.util.pread("/home/noah/.config/awesome/scripts/cmus_status.sh")
+        return 'cmus ' .. c
 end
 
 -- function rtorrent_status()

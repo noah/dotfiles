@@ -1,2 +1,3 @@
-# use vi in python, ruby interpreters (readline)
-set editing-mode vi 
+set bell-style none
+set editing-mode vi
+set keymap vi
