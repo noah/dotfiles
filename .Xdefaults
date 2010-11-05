@@ -32,8 +32,8 @@ urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 
-urxvt*font: xft:Liberation Mono:size=10
-urxvt*boldFont: xft: Liberation Mono:size=10
+urxvt*font:xft:Liberation Mono:size=10
+!urxvt*boldFont:xft:Liberation Mono:size=10
 
 
 /*
@@ -70,10 +70,10 @@ urxvt*background: #000
 urxvt*foreground: #d3d3d3
 
 ! theme
-!#include "/home/noah/.colors/tango"
-!#include "/home/noah/.colors/zenburn"
-#include "/home/noah/.colors/gnome"
-!#include "/home/noah/.colors/bright"
-!#include "/home/noah/.colors/soft"
-!#include "/home/noah/.colors/dark"
-!#include "/home/noah/.colors/milk"
+!#include "/home/tilton/.colors/tango"
+!#include "/home/tilton/.colors/zenburn"
+#include "/home/tilton/.colors/gnome"
+!#include "/home/tilton/.colors/bright"
+!#include "/home/tilton/.colors/soft"
+!#include "/home/tilton/.colors/dark"
+!#include "/home/tilton/.colors/milk"
