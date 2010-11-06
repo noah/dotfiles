@@ -75,4 +75,13 @@ set hintkeys="asdfg;lkjh"
 " 2 Follow the selected hint on <Return> only if it's been c_<Tab>-selected.
 set followhints=1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"      Autocommands
+"
+" Enable passthrough mode on all Google sites:
+autocmd LocationChange .* js modes.passAllKeys = /google\.com/.test(buffer.URL)
+" Enable passthrough mode on some Google sites:
+" autocmd LocationChange .* js modes.passAllKeys = /(www|mail)\.google\.com/.test(buffer.URL)
+
 " vim: ft=vim
