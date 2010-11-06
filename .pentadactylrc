@@ -69,4 +69,10 @@ set complete=l
 " Alphabet for selecting and labeling hints
 set hintkeys="asdfg;lkjh"
 
+" When/how to follow hints
+" 0 Follow the first hint as soon as typed text uniquely identifies it.
+" 1 Follow the selected hint on <Return>.
+" 2 Follow the selected hint on <Return> only if it's been c_<Tab>-selected.
+set followhints=1
+
 " vim: ft=vim

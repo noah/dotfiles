@@ -31,8 +31,8 @@ urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 
-urxvt*font: xft:Liberation Mono:pixelsize=14:autohint=true:antialias=false
-urxvt*boldFont: xft: Liberation Mono: pixelsize=14:autohint=true:antialias=false
+urxvt*font: xft:Liberation Mono:medium:pixelsize=14:autohint=true:antialias=false
+urxvt*boldFont: xft:Liberation Mono:medium:pixelsize=14:autohint=true:antialias=false
 
 
 /*
@@ -41,10 +41,10 @@ urxvt*boldFont: xft: Liberation Mono: pixelsize=14:autohint=true:antialias=false
 * */
 xft.dpi: 96
 xft.rgba: rgb
-xft.antialias: true
+xft.antialias: false
 xft.hinting: true
 ! hints{light, medium, full}
-xft.hintstyle: hintslight
+xft.hintstyle: true
 
 /*
 *       
