@@ -47,7 +47,7 @@ filetype plugin on
 set t_Co=256
 set background=dark
 syntax on                   " syntax highlighting on
-colorscheme inkpot
+"colorscheme inkpot
 "colorscheme 256-jungle
 "colorscheme summerfruit256
 "colorscheme desert256
@@ -55,6 +55,8 @@ colorscheme inkpot
 "colorscheme inkpot
 "colorscheme ir_black
 "colorscheme xoria256
+"colorscheme leo
+colorscheme lodestone
 
 set showmatch             " show matching paren when bracked inserted
 
