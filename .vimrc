@@ -57,6 +57,7 @@ syntax on                   " syntax highlighting on
 "colorscheme xoria256
 "colorscheme leo
 colorscheme 256-grayvim
+"colorscheme default
 
 set showmatch             " show matching paren when bracked inserted
 
