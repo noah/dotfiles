@@ -3,7 +3,9 @@
 gnome-settings-daemon &
 gnome-power-manager &
 
-XSESS=awesome
-# XSESS=gnome-session
+urxvtd -q -o -f
+
+#XSESS=awesome
+XSESS=gnome-session
 
 exec $XSESS

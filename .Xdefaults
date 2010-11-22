@@ -37,3 +37,5 @@ urxvt.underlineURLs:      true
 urxvt*scrollTtyOutput:      false
 urxvt*scrollWithBuffer:     true
 urxvt*scrollTtyKeypress:    true
+
+Xcursor.theme: Vanilla-DMZ
