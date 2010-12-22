@@ -1,6 +1,6 @@
 " This my vimrc has been collected from the vast reaches of the 'net.
 "
-"   See also: http://delicious.com/noah/vim
+"   See also: http://pinboard.in/u:noah
 "
 "   ``VIM is the greatest editor since the stone chisel.''
 "                                     
@@ -48,14 +48,14 @@ filetype plugin indent on
 set t_Co=256                    " use 256 terminal colors
 set background=dark             " background color
 syntax on                       " syntax highlighting on
-" colorscheme 256-grayvim
+colorscheme beauty256
+" colorscheme jellybeans
 " colorscheme lettuce
 " colorscheme 256-jungle
 " colorscheme desert256
 " colorscheme gardener
 " colorscheme inkpot
 " colorscheme tir_black
-colorscheme jellybeans
 " colorscheme summerfruit256
 " colorscheme up
 " colorscheme vilight
