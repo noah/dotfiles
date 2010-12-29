@@ -48,7 +48,8 @@ filetype plugin indent on
 set t_Co=256                    " use 256 terminal colors
 set background=dark             " background color
 syntax on                       " syntax highlighting on
-colorscheme beauty256
+colorscheme wombat256
+"colorscheme beauty256
 " colorscheme jellybeans
 " colorscheme lettuce
 " colorscheme 256-jungle
@@ -211,3 +212,7 @@ if has("gui_running")
   colorscheme wombat256
   set background=dark
 endif
+
+
+" Make shift-insert work like in Xterm
+nnoremap  <S-Insert> <MiddleMouse>

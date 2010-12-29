@@ -2,10 +2,7 @@ urxvt.internalBorder:   6
 urxvt.externalBorder:   0
 urxvt.urgentOnBell:             true
 urxvt.cursorBlink:              true
-urxvt.cursorColor:             black
-urxvt.cursorColor2:             white
-urxvt.cursorUnderline: true
-urxvt.underlineColor: yellow
+urxvt.cursorUnderline: false
 
 urxvt*boldColors:on
 urxvt*buffered:true
@@ -65,8 +62,10 @@ urxvt.underlineURLs:      true
 
 ! fg/bg
 urxvt*highlightColor:#444
-urxvt*background: #000000
-urxvt*foreground: #ffffff
+urxvt*background: #000
+urxvt*foreground: #fff
+urxvt.cursorColor:             white
+urxvt.cursorColor2:             balck
 
 ! theme
 !#include "/home/noah/.colors/tango"

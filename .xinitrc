@@ -15,13 +15,15 @@ gnome-settings-daemon&
 gnome-power-manager&
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
+urxvtd -f -o -q
 # /usr/bin/feh --bg-seamless /home/noah/lauves.jpg
 
-#X_SESS=gnome-session
 #X_SESS=dwm
 #X_SESS=startkde
 #X_SESS=wmii
-X_SESS=awesome
+
+#X_SESS=awesome
+X_SESS=gnome-session
 
 echo "DISPLAY: $DISPLAY"
 echo "tty: $(tty)"
