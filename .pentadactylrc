@@ -39,6 +39,10 @@ javascript liberator.beep = function() { return false; }
 " scroll more than 1 line at a time
 map j 10<C-e>
 map k 10<C-y>
+" override muscle memory
+map <C-f> /
+" _hells_ yeah.
+map <C-d> :pinboard<CR>
 
 set editor="gvim -f"
 
@@ -68,5 +72,14 @@ set complete=l
 "
 " Alphabet for selecting and labeling hints
 set hintkeys="asdfg;lkjh"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"      Functions
+"
+"
+command! pinboard :open javascript:q=location.href;if(document.getSelection){d=document.getSelection();}else{d='';};p=document.title;void(open('https://pinboard.in/add?showtags=yes&url='+encodeURIComponent(q)+'&description='+encodeURIComponent(d)+'&title='+encodeURIComponent(p),'Pinboard',%20'toolbar=no,width=700,height=600')); 
+
 
 " vim: ft=vim
