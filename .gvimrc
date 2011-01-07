@@ -25,5 +25,6 @@ filetype plugin indent on
 filetype indent on    " Enable filetype-specific indenting
 filetype on           " Enable filetype detection
 
+" fix Shift+Insert.  Note: these won't work with :set paste
 noremap <S-Insert> "+gP
 inoremap <S-Insert> <ESC>"+gP

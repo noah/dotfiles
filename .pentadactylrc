@@ -39,6 +39,10 @@ javascript liberator.beep = function() { return false; }
 " scroll more than 1 line at a time
 map j 10<C-e>
 map k 10<C-y>
+" override muscle memory
+map <C-f> /
+" _hells_ yeah.
+map <C-d> :pinboard<CR>
 
 set editor="gvim -f"
 
@@ -69,19 +73,13 @@ set complete=l
 " Alphabet for selecting and labeling hints
 set hintkeys="asdfg;lkjh"
 
-" When/how to follow hints
-" 0 Follow the first hint as soon as typed text uniquely identifies it.
-" 1 Follow the selected hint on <Return>.
-" 2 Follow the selected hint on <Return> only if it's been c_<Tab>-selected.
-set followhints=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"      Autocommands
+"      Functions
 "
-" Enable passthrough mode on all Google sites:
-autocmd LocationChange .* js modes.passAllKeys = /google\.com/.test(buffer.URL)
-" Enable passthrough mode on some Google sites:
-" autocmd LocationChange .* js modes.passAllKeys = /(www|mail)\.google\.com/.test(buffer.URL)
+"
+command! pinboard :open javascript:q=location.href;if(document.getSelection){d=document.getSelection();}else{d='';};p=document.title;void(open('https://pinboard.in/add?showtags=yes&url='+encodeURIComponent(q)+'&description='+encodeURIComponent(d)+'&title='+encodeURIComponent(p),'Pinboard',%20'toolbar=no,width=700,height=600')); 
+
 
 " vim: ft=vim

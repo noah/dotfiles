@@ -64,8 +64,8 @@ urxvt.underlineURLs:      true
 urxvt*highlightColor:#444
 urxvt*background: #000
 urxvt*foreground: #fff
-urxvt.cursorColor:             white
-urxvt.cursorColor2:             balck
+urxvt.cursorColor:             gray
+urxvt.cursorColor2:            black
 
 ! theme
 !#include "/home/noah/.colors/tango"

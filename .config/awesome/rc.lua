@@ -46,11 +46,12 @@ tag_names =
 {
   "term", 
   "web", 
-  "dev", 
-  "scrap",
   "downbe",
-  "uchicago",
-  "kent",
+  "scrap",
+  "51023-oop",
+  "51085-app",
+  "51044-cpp",
+  "54001-net"
 }
 
 -- number the tag names
