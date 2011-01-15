@@ -47,7 +47,7 @@ tag_names =
   "term", 
   "web", 
   "downbe",
-  "scrap",
+  "cspp",
   "51023-oop",
   "51085-app",
   "51044-cpp",
@@ -188,6 +188,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control", }, "Down", function () awful.util.spawn("amixer -q set PCM 1%-",false)end),
     awful.key({ modkey, "Control", }, "Next", function () awful.util.spawn("cmus-remote --next",false)end),
     awful.key({ modkey, "Control", }, "Prior", function () awful.util.spawn("cmus-remote --prev",false)end),
+    awful.key({ modkey, "Control", }, "End", function () awful.util.spawn("cmus-remote --pause",false)end),
 
     awful.key({ modkey,           }, "j",
         function ()
