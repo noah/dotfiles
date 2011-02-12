@@ -48,7 +48,7 @@ filetype plugin indent on
 set t_Co=256                    " use 256 terminal colors
 set background=dark             " background color
 syntax on                       " syntax highlighting on
-colorscheme wombat256
+"colorscheme wombat256
 "colorscheme beauty256
 " colorscheme jellybeans
 " colorscheme lettuce
@@ -61,6 +61,7 @@ colorscheme wombat256
 " colorscheme up
 " colorscheme vilight
 " colorscheme xoria256
+colorscheme fu
 
 set showmatch             " show matching paren when bracked inserted
 
@@ -237,6 +238,10 @@ if has("gui_running")
   colorscheme wombat256
   set background=dark
 endif
+
+""" PYTHON
+let python_highlight_all = 1
+autocmd BufRead,BufNewFile *.py set tabstop=4 expandtab shiftwidth=4 softtabstop=4 
 
 
 " Make shift-insert work like in Xterm

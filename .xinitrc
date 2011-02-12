@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Load your X Resource defaults, if you have them...
-
 if [ -f $HOME/.Xdefaults ]; then
     xrdb -merge $HOME/.Xdefaults
 fi
@@ -22,8 +20,8 @@ urxvtd -f -o -q
 #X_SESS=startkde
 #X_SESS=wmii
 
+X_SESS=gnome-session
 X_SESS=awesome
-#X_SESS=gnome-session
 
 echo "DISPLAY: $DISPLAY"
 echo "tty: $(tty)"
