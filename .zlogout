@@ -1,1 +1,1 @@
-~/bin/firefox-sync > /dev/null
+#~/bin/firefox-sync > /dev/null
