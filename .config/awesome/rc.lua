@@ -7,8 +7,12 @@ require("beautiful")
 
 -- tagging
 -- require("eminent")
--- Notification library
+--
+-- notifications library
 require("naughty")
+
+--  widget library
+-- require("vicious")
 
 config_dir = awful.util.getdir("config")
 -- lua join()
@@ -401,7 +405,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- ==============================================================[Status bar stuff ]
 
--- TODO make this less verbose, stop abusing lua
+-- TODO move all to vicious, stop abusing lua
 
 -- Functions
 function yaourt_updates()
@@ -428,21 +432,29 @@ function volume()
 end
 
 -- setup boxes for each screen
-mybwibox = {}
-yaourtbox = {}
-cmusbox = {}
-uptimebox = {}
--- rtorrentbox = {}
-
-mybwibox = awful.wibox({ position = "bottom", screen = 1})
-delim = ' | '
+mybwibox    = {}
+yaourtbox   = {}
+cmusbox     = {}
+uptimebox   = {}
+mybwibox    = awful.wibox({ position = "bottom", screen = 1})
+delim       = ' | '
 
 for s=1, screen.count() do
-        yaourtbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        cmusbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        -- rtorrentbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        uptimebox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        delimiter = widget({ type = "textbox", })
+        yaourtbox = widget({ 
+          type    = "textbox", 
+          layout  = awful.widget.layout.horizontal.leftright 
+        })
+        cmusbox   = widget({ 
+          type    = "textbox", 
+          layout  = awful.widget.layout.horizontal.leftright
+        })
+        uptimebox = widget({ 
+          type    = "textbox", 
+          layout  = awful.widget.layout.horizontal.leftright
+        })
+        delimiter = widget({ 
+          type    = "textbox",
+        })
 end
 
 mybwibox.widgets = {
@@ -450,32 +462,26 @@ mybwibox.widgets = {
         delimiter,
         yaourtbox,
         delimiter,
-        -- rtorrentbox,
-        -- delimiter,
         uptimebox,
-        -- delimiter,
         layout = awful.widget.layout.horizontal.leftright
 }
 
-cmusbox.text = cmus_status()
-uptimebox.text = uptime()
-yaourtbox.text = yaourt_updates()
--- rtorrentbox.text = rtorrent_status()
-delimiter.text = delim
+-- set initial values
+cmusbox.text    = cmus_status()
+uptimebox.text  = uptime()
+yaourtbox.text  = yaourt_updates()
+delimiter.text  = delim
 
--- 
--- timers
-ten_second_timer = timer { timeout = 10}
-ten_second_timer:add_signal("timeout", function()
+-- register timer callbacks
+ten_minute_timer = timer { timeout = 10 * 60 }
+ten_minute_timer:add_signal("timeout", function()
         yaourtbox.text = yaourt_updates()
-        -- rtorrentbox.text = rtorrent_status()
 end)
-ten_second_timer:start()
-
-
-one_second_timer = timer { timeout = 1}
+one_second_timer = timer { timeout = 1 }
 one_second_timer:add_signal("timeout", function()
         cmusbox.text = cmus_status()
         uptimebox.text = uptime()
 end)
+
+ten_minute_timer:start()
 one_second_timer:start()
