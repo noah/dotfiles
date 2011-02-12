@@ -47,18 +47,8 @@ filetype plugin on
 set t_Co=256
 set background=dark
 syntax on                   " syntax highlighting on
-colorscheme 256-grayvim
-" colorscheme lettuce
-" colorscheme 256-jungle
-" colorscheme desert256
-" colorscheme gardener
-" colorscheme inkpot
-" colorscheme tir_black
-" colorscheme jellybeans
-" colorscheme summerfruit256
-" colorscheme up
-" colorscheme vilight
-" colorscheme xoria256
+colorscheme fu
+" do :SCROLLCOLOR to page through colors
 
 set showmatch             " show matching paren when bracked inserted
 
@@ -202,3 +192,8 @@ if has("gui_running")
   set background=dark
 endif
 
+
+""" PYTHON
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+let python_highlight_all = 1
+autocmd FileType python set omnifunc=pythoncomplete#Complete
