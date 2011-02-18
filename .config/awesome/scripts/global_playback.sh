@@ -17,7 +17,7 @@ if [[ $? -eq 0 ]]; then
 else
   # scriptable consumer electronics are sooooooooooooooooooo rad
   # http://downbe:9000/html/docs/cli-api.html?player=#mixer%20volume
-  HOST=localhost
+  HOST=7be
   PORT=9090
   player_id="00:04:20:12:97:e5"
 

@@ -16,7 +16,7 @@ if [[ $? -eq 0 ]]; then
 else
   echo "$1 >> /home/noah/wtf"
   # http://downbe:9000/html/docs/cli-api.html?player=#mixer%20volume
-  HOST=localhost
+  HOST=7be
   PORT=9090
   VOL_STEP=5
 
