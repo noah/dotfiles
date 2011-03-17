@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "envy code r 10"
+theme.font          = "Liberation Mono 10"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"

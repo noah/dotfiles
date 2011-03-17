@@ -5,7 +5,7 @@ gnome-power-manager &
 
 urxvtd -q -o -f
 
-#XSESS=awesome
-XSESS=gnome-session
+XSESS=awesome
+#XSESS=gnome-session
 
 exec $XSESS

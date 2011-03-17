@@ -1,4 +1,4 @@
-urxvt*background:#1a1a1a
+urxvt*background:black
 urxvt*foreground:white
 urxvt*buffered:true
 urxvt*transparent: 0
@@ -22,8 +22,8 @@ urxvt*inheritPixmap: false
 urxvt*tintColor: #FFFFFF
 urxvt*shading: 90
 
-urxvt*font:xft:envy code r:medium:pixelsize=13
-urxvt*boldFont:xft:envy code r:medium:pixelsize=13
+urxvt*font:xft:Liberation Mono:medium:pixelsize=12
+urxvt*boldFont:xft:Liberation Mono:medium:pixelsize=12
 
 #include "/home/noah/.colors/dark"
 !#include "/home/noah/.colors/bright"
