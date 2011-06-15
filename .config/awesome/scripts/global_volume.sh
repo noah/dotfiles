@@ -10,20 +10,19 @@ if [[ $# -ne 1 ]]; then
   exit 1
 fi
 
-cmus-remote -Q
-if [[ $? -eq 0 ]]; then
-  amixer -q set PCM 1%$1
-else
-  echo "$1 >> /home/noah/wtf"
-  # http://downbe:9000/html/docs/cli-api.html?player=#mixer%20volume
-  HOST=7be
-  PORT=9090
-  VOL_STEP=5
+#cmus-remote -Q
+#if [[ $? -eq 0 ]]; then
+amixer -q set Master 1%$1
+#else
+# http://downbe:9000/html/docs/cli-api.html?player=#mixer%20volume
+HOST=7be
+PORT=9090
+VOL_STEP=5
 
-  # scriptable consumer electronics are sooooooooooooooooooo rad
+# scriptable consumer electronics are sooooooooooooooooooo rad
 
-  #player_id=$((echo "player id ?"; sleep 1)|telnet $HOST $PORT|sed 's/player id %3F //')
-  #echo "$player_id"
-  player_id="00:04:20:12:97:e5"
-  (echo "$player_id mixer volume $1${VOL_STEP}"; sleep 1)|telnet $HOST $PORT
-fi
+#player_id=$((echo "player id ?"; sleep 1)|telnet $HOST $PORT|sed 's/player id %3F //')
+#echo "$player_id"
+player_id="00:04:20:12:97:e5"
+(echo "$player_id mixer volume $1${VOL_STEP}"; sleep 1)|telnet $HOST $PORT
+#fi
