@@ -3,10 +3,9 @@ urxvt.internalBorder:   6
 urxvt.externalBorder:   0
 urxvt.urgentOnBell:             true
 urxvt.cursorBlink:              true
-urxvt.cursorColor:             black
-urxvt.cursorColor2:             white
-urxvt.cursorUnderline: true
-urxvt.underlineColor: yellow
+urxvt.cursorColor:             #FFA812
+urxvt.cursorColor2:            #000000
+urxvt.cursorUnderline: false
 
 urxvt*boldColors:off
 urxvt*buffered:true
@@ -32,9 +31,14 @@ urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 
-urxvt*font:xft:Liberation Mono:size=10
-!urxvt*boldFont:xft:Liberation Mono:size=10
-
+!urxvt*font:xft:Dina:medium:pixelsize=15:autohint=yes:antialias=no
+!urxvt*boldFont:xft:Dina:bold:pixelsize=15:autohint=yes:antialias=no
+!
+urxvt*font:xft:Monaco:medium:pixelsize=11:autohint=yes:antialias=yes
+urxvt*boldFont:xft:Monaco:medium:pixelsize=11:autohint=yes:antialias=yes
+!
+!urxvt*font:xft:Inconsolata:medium:pixelsize=13:autohint=yes:antialias=yes
+!urxvt*boldFont:xft:Inconsolata:medium:pixelsize=13:autohint=yes:antialias=yes
 
 /*
 *
@@ -42,7 +46,7 @@ urxvt*font:xft:Liberation Mono:size=10
 * */
 xft.dpi: 96
 xft.rgba: rgb
-xft.antialias: true
+!xft.antialias: true
 xft.hinting: true
 ! hints{light, medium, full}
 xft.hintstyle: hintslight
