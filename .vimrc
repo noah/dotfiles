@@ -38,6 +38,13 @@ set hidden              " allow to change buffer w/o saving
 "   %) end of width specification
 set statusline=%<\ %n:%f\ %m%r%y[%{&fo}]%=%-35.(L\ %l\ /\ %L;\ C\ %c%V\ (%P)%)
 
+
+
+""" Pathogen
+""" http://www.vim.org/scripts/script.php?script_id=2332
+
+call pathogen#runtime_append_all_bundles() 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax highlighting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -57,7 +64,7 @@ syntax on                       " syntax highlighting on
 " colorscheme gardener
 " colorscheme inkpot
 " colorscheme tir_black
-" colorscheme summerfruit256
+"colorscheme summerfruit256
 " colorscheme up
 " colorscheme vilight
 " colorscheme xoria256
@@ -130,11 +137,11 @@ set magic                 " magic on
 " Completion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildmenu              " tab-complete Ex commands
-set wildmode=list:longest 
+set wildmode=list:longest,full
 set completeopt=menu      " use popup menu to show completions
 " autocomplete functions and identifiers for languages
 "setlocal omnifunc=syntaxcomplete#Complete
-set omnifunc=syntaxcomplete#Complete " C-X C-O
+"set omnifunc=syntaxcomplete#Complete " C-X C-O
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
@@ -145,11 +152,13 @@ set foldmethod=manual     " manual, marker, syntax, try set foldcolumn=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cmdwinheight=20       " use 20 screen lines for command-line window
 " always open command line window
 nnoremap : q:i
 nnoremap / q/i
 nnoremap ? q?i
+
+" use 20 screen lines for command-line window
+set cmdwinheight=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual appearance
@@ -181,8 +190,8 @@ set tabstop=4
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " always open NERDTree explorer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 
 function! NERDTreeQuit()
   redir => buffersoutput
@@ -234,14 +243,40 @@ map <F12> :set number!<CR>
 let g:GPGUseAgent = 1
 
 if has("gui_running")
-  set guifont=Liberation\ Mono\ 10
-  colorscheme wombat256
-  set background=dark
+  set guifont=dina\ 10
+  set novb t_vb=          " neither bell nor vbell
+  " fix Shift+Insert.  Note: these won't work with :set paste
+  "noremap <S-Insert> "+gP
+  "inoremap <S-Insert> <ESC>"+gP
+  "let g:solarized_termcolors=256
+  "colorscheme solarized
+  " Make shift-insert work like in Xterm
+  nnoremap  <S-Insert> <MiddleMouse>
+  "conqueterm
+  let g:ConqueTerm_PyVersion = 2
+  let g:ConqueTerm_FastMode = 0
+  let g:ConqueTerm_Color = 1
+  let g:ConqueTerm_SessionSupport = 0
+  let g:ConqueTerm_ReadUnfocused = 1
+  let g:ConqueTerm_InsertOnEnter = 0
+  let g:ConqueTerm_CloseOnEnd = 0
+  let g:ConqueTerm_StartMessages = 0
+  let g:ConqueTerm_ToggleKey = '<F8>'
+  let g:ConqueTerm_Syntax = 'conque'
+  let g:ConqueTerm_CWInsert = 1
+  let g:ConqueTerm_ExecFileKey = '<F11>'
+  let g:ConqueTerm_SendFileKey = '<F10>'
+  let g:ConqueTerm_SendVisKey = '<F9>'
+  let g:ConqueTerm_TERM = 'vt100'
 endif
 
 """ PYTHON
 let python_highlight_all = 1
 autocmd BufRead,BufNewFile *.py set tabstop=4 expandtab shiftwidth=4 softtabstop=4 
+
+autocmd BufRead,BufNewFile *.textile set tw=0 spell spelllang=en_us
+
+set makeprg=scons
 
 
 " Make shift-insert work like in Xterm

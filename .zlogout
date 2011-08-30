@@ -1,1 +1,1 @@
-ff-sync > /dev/null
+#ff-sync > /dev/null

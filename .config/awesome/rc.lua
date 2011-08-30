@@ -60,11 +60,12 @@ tag_names =
   "term", 
   "web", 
   "7be",
-  "cspp",
-  "51023",
-  "51085",
-  "51044",
-  "54001"
+  "cspp-term",
+  "cspp-web",
+  "cspp-books",
+  "web.ac",
+  "scripts.ac",
+  "mail.ac"
 }
 
 -- number the tag names
@@ -258,7 +259,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1)end),
 
     -- keybindings
-    awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot")end),
+    awful.key({ modkey }, "Print", function () awful.util.spawn("gnome-screenshot")end),
+    awful.key({ modkey, "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -w")end),
 
     -- winamp-style hotkeys, baby!
     --
@@ -378,12 +380,12 @@ client.add_signal("manage", function (c, startup)
     -- awful.titlebar.add(c, { modkey = modkey })
 
     -- Enable sloppy focus
-    c:add_signal("mouse::enter", function(c)
-        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-            and awful.client.focus.filter(c) then
-            client.focus = c
-        end
-    end)
+    -- c:add_signal("mouse::enter", function(c)
+    --     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+    --         and awful.client.focus.filter(c) then
+    --         client.focus = c
+    --     end
+    -- end)
 
     if not startup then
         -- Set the windows at the slave,
@@ -473,8 +475,8 @@ yaourtbox.text  = yaourt_updates()
 delimiter.text  = delim
 
 -- register timer callbacks
-ten_minute_timer = timer { timeout = 10 * 60 }
-ten_minute_timer:add_signal("timeout", function()
+hour_timer = timer { timeout = 60 * 60 }
+hour_timer:add_signal("timeout", function()
         yaourtbox.text = yaourt_updates()
 end)
 one_second_timer = timer { timeout = 1 }
@@ -483,5 +485,5 @@ one_second_timer:add_signal("timeout", function()
         uptimebox.text = uptime()
 end)
 
-ten_minute_timer:start()
+hour_timer:start()
 one_second_timer:start()

@@ -3,25 +3,25 @@
 ---------------------------
 
 theme = {}
-theme.font          = "Liberation Mono 11"
+theme.font          = "Monaco 8"
 
 -- You can use your own command to set your wallpaper
 -- theme.wallpaper_cmd = { "awsetbg -a /home/noah/lauves_bw.jpg" }   
-theme.wallpaper_cmd = { "feh --bg-scale /home/noah/img/lauves.jpg" }
+theme.wallpaper_cmd = { "feh --bg-scale /home/noah/img/background" }
 
 theme.bg_normal     = "#121212"
 theme.bg_focus      = "#000000"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 
-theme.fg_normal     = "#f5f5f5"
-theme.fg_focus      = "#ffffff"
+theme.fg_normal     = "#808080"
+theme.fg_focus      = "#d3d3d3"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
 theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_focus  = "#808080"
 theme.border_marked = "#91231c"
 
 -- There are another variables sets
@@ -89,4 +89,4 @@ theme.layout_tiletop = "/home/noah/.config/awesome/themes/default/layouts/tileto
 theme.awesome_icon = "/home/noah/.config/awesome/icons/n0ah16.png"
 
 return theme
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:encoding=utf-8:textwidth=80
+-- vim: filetype=lua

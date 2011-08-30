@@ -12,7 +12,7 @@ fi
 
 #cmus-remote -Q
 #if [[ $? -eq 0 ]]; then
-amixer -q set Master 1%$1
+amixer -Dpulse -q -c 0 set Master 1$1
 #else
 # http://downbe:9000/html/docs/cli-api.html?player=#mixer%20volume
 HOST=7be
