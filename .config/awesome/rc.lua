@@ -60,9 +60,7 @@ tag_names =
   "term", 
   "web", 
   "7be",
-  "cspp-term",
-  "cspp-web",
-  "cspp-books",
+  "cspp",
   "web.ac",
   "scripts.ac",
   "mail.ac"

@@ -1,0 +1,162 @@
+urxvt.internalBorder:   0
+urxvt.externalBorder:   0
+urxvt.urgentOnBell:             true
+urxvt.cursorBlink:              true
+urxvt.cursorUnderline: false
+
+urxvt*buffered:true
+urxvt*depth:32
+urxvt*fading:0
+urxvt*shading:0
+urxvt*visualBell:false
+urxvt*inheritPixmap:true
+urxvt*borderLess:false
+urxvt*:scrollTtyKeypress: true
+urxvt*transparent:false
+
+urxvt*jumpScroll:true
+urxvt*loginShell:true
+urxvt*saveLines:65535
+urxvt*scrollBar_right:true
+urxvt*scrollBar:false
+urxvt*scrollstyle:plain
+urxvt*scrollTtyKeypress:    true
+urxvt*scrollTtyOutput:      false
+urxvt*scrollWithBuffer:     true
+urxvt*termName: rxvt-256color
+urxvt*transparentscrollbar:true
+urxvt*transpscrollbar:true
+
+!urxvt*font: xft:Bitstream Vera Sans Mono:medium:pixelsize=12:autohint=true:antialias=false
+!urxvt*boldFont: xft:Bistream Vera Sans Mono:medium:pixelsize=12:autohint=true:antialias=false
+
+!urxvt*font: xft:Liberation Mono:medium:pixelsize=14:autohint=true:antialias=false
+!urxvt*boldFont: xft:Liberation Mono:medium:pixelsize=14:autohint=true:antialias=false
+
+!urxvt*font:xft:ProggySquareTTSZ:medium:pixelsize=15:autohint=true:antialias=true
+!urxvt*boldFont:xft:ProggySquareTTSZ:medium:pixelsize=15:autohint=true:antialias=true
+
+!urxvt*font:xft:ProggyTinyTTSZ:medium:pixelsize=16:autohint=true:antialias=true
+!urxvt*boldFont:xft:ProggyTinyTTSZ:medium:pixelsize=16:autohint=true:antialias=true
+
+!urxvt*font:xft:Droid Sans Mono:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*boldFont:xft:Droid Sans Mono:medium:pixelsize=12:autohint=false:antialias=false
+
+!urxvt*font:xft:Andale Mono:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*boldFont:xft:Andale Mono:medium:pixelsize=12:autohint=false:antialias=false
+
+!urxvt*font:xft:ProFont:medium:pixelsize=13:autohint=false:antialias=false
+!urxvt*boldFont:xft:ProFont:medium:pixelsize=13:autohint=false:antialias=false
+
+!urxvt*font:xft:Montecarlo:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*boldFont:xft:Montecarlo:medium:pixelsize=12:autohint=false:antialias=false
+
+!urxvt*font:xft:Inconsolata:medium:pixelsize=14:autohint=true:antialias=true
+!urxvt*boldFont:xft:Inconsolata:medium:pixelsize=14:autohint=true:antialias=true
+
+!urxvt*font:xft:Consolas:medium:pixelsize=12:autohint=true:antialias=true
+!urxvt*boldFont:xft:Consolas:medium:pixelsize=12:autohint=true:antialias=true
+
+!urxvt*font:	xft:DejaVu Sans Mono:medium:pixelsize=21:autohint=true:antialias=false
+!urxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11:autohint=true:antialias=false
+
+!urxvt*font:xft:ProggyCleanTTSZ:medium:pixelsize=15:autohint=true:antialias=false
+!urxvt*boldFont:xft:ProggyCleanTTSZ:bold:pixelsize=15:autohint=true:antialias=false
+
+!urxvt*font:	Terminus:medium:pixelsize=13:autohint=true:antialias=false
+!urxvt*boldFont:	xft:Terminus:bold:pixelsize=13:autohint=true:antialias=false
+ 
+! readable bold characters:
+!
+!urxvt*font:	xft:Monaco:medium:pixelsize=10:autohint=true:antialias=false
+urxvt*font:	xft:Monaco:medium:pixelsize=15
+ 
+!urxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*boldFont:xft:Envy Code R:bold:pixelsize=12:autohint=false:antialias=false
+
+!urxvt*font:xft:Dina:medium:pixelsize=14:autohint=false:antialias=false
+!urxvt*boldFont:xft:Dina:bold:pixelsize=14:autohint=false:antialias=false
+
+
+/*
+*
+*       Xft
+* */
+xft.dpi: 96
+xft.rgba: rgb
+!xft.antialias: false
+!xft.hinting: false
+! hints{light, medium, full}
+!xft.hintstyle: hintsfull
+
+/*
+*
+*       color & theme
+* */
+
+! fg/bg
+urxvt*highlightColor:#444444
+!urxvt*background: #121212
+urxvt*foreground: #ffffff
+urxvt.cursorColor:             gray
+urxvt.cursorColor2:            black
+urxvt*boldColors:off
+
+! color theme
+!
+! todo: write a python script to output this
+!black
+urxvt*color0:    #6c6c6c
+! red
+urxvt*color1:    #fe021d
+! green
+urxvt*color2:    #00fc00
+! yellow
+urxvt*color3:    #fef500
+! blue
+urxvt*color4:    #00b4ff
+! magenta
+urxvt*color5:    #b84eef
+! cyan
+urxvt*color6:    #5aeaf7
+! white
+urxvt*color7:    #ffffff
+
+! Bold
+
+! black
+urxvt*color8:       #6c6c6c
+! red
+urxvt*color9:       #fe021d
+! green
+urxvt*color10:      #00fc00
+! yellow
+urxvt*color11:      #fef500
+! blue
+urxvt*color12:      #00b4ff
+! magenta
+urxvt*color13:      #b84eef
+! cyan
+urxvt*color14:      #5aeaf7
+! white
+urxvt*color15:      #ffffff
+
+
+/*
+*       
+*       perl stuff
+* */
+urxvt.underlineURLs:      false
+urxvt.colorUL: #fef500
+
+urxvt.perl-lib:         /home/noah/.urxvt
+urxvt.perl-ext-common:  font,default,matcher
+!urxvt.perl-ext:         font
+urxvt.keysym.Control-Shift-Up:      perl:font:increment
+urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+urxvt.keysym.Control-Shift-Right:   perl:font:cycle-right
+urxvt.keysym.Control-Shift-Left:    perl:font:cycle-left
+
+! middle-click opens urls in chrome
+urxvt.matcher.button:     2
+urxvt*urlLauncher: /usr/bin/google-chrome
