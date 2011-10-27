@@ -9,7 +9,7 @@ if [ -f $HOME/.Xmodmap ]; then
 fi
 
 xscreensaver -no-splash &
-gnome-settings-daemon&
+/usr/lib/gnome-settings-daemon/gnome-settings-daemon&
 gnome-power-manager&
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
