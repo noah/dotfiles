@@ -57,13 +57,10 @@ layouts =
 -- {{{ Tags
 tag_names = 
 {
-  "term", 
-  "web", 
+  "esq", 
   "7be",
-  "cspp",
-  "web.ac",
-  "scripts.ac",
-  "mail.ac"
+  "web",
+  "scratch",
 }
 
 -- number the tag names
