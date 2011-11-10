@@ -5,7 +5,7 @@ xrdb -merge $HOME/.Xdefaults
 #xscreensaver -no-splash &
 #gnome-power-manager&
 
-gnome-settings-daemon&
+#gnome-settings-daemon&
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
 

@@ -6,7 +6,7 @@ config_dir = awful.util.getdir("config")
 
 theme = {}
 
-theme.font          = "liberation mono 9"
+theme.font          = "mono 10"
 
 -- default color
 --

@@ -32,8 +32,8 @@ urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 
-urxvt*font: xft:Liberation Mono:size=10
-urxvt*boldFont: xft: Liberation Mono: size=10
+urxvt*font: xft:monaco:size=10
+urxvt*boldFont: xft: monaco: size=10
 
 
 /*
@@ -45,7 +45,7 @@ xft.rgba: rgb
 xft.antialias: true
 xft.hinting: true
 ! hints{light, medium, full}
-xft.hintstyle: hintslight
+xft.hintstyle: hintsfull
 
 /*
 *       
