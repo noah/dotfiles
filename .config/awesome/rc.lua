@@ -439,7 +439,7 @@ yaourtbox = {}
 cmusbox = {}
 uptimebox = {}
 -- rtorrentbox = {}
-emailbox = {}
+-- emailbox = {}
 
 mybwibox = awful.wibox({ position = "bottom", screen = 1})
 delim = ' | '
@@ -449,7 +449,7 @@ for s=1, screen.count() do
         cmusbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
         -- rtorrentbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
         uptimebox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        emailbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
+        -- emailbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
         delimiter = widget({ type = "textbox", })
 end
 
@@ -462,7 +462,7 @@ mybwibox.widgets = {
         -- delimiter,
         uptimebox,
         delimiter,
-        emailbox,
+        -- emailbox,
         -- delimiter,
         layout = awful.widget.layout.horizontal.leftright
 }
@@ -471,7 +471,7 @@ cmusbox.text = cmus_status()
 uptimebox.text = uptime()
 yaourtbox.text = yaourt_updates()
 -- rtorrentbox.text = rtorrent_status()
-emailbox.text = email()
+-- emailbox.text = email()
 delimiter.text = delim
 
 -- 
@@ -480,7 +480,7 @@ ten_second_timer = timer { timeout = 10}
 ten_second_timer:add_signal("timeout", function()
         yaourtbox.text = yaourt_updates()
         -- rtorrentbox.text = rtorrent_status()
-        emailbox.text = email()
+        -- emailbox.text = email()
 end)
 ten_second_timer:start()
 

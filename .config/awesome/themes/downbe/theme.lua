@@ -6,7 +6,7 @@ config_dir = awful.util.getdir("config")
 
 theme = {}
 
-theme.font          = "mono 10"
+theme.font          = "monaco 9"
 
 -- default color
 --
@@ -96,7 +96,7 @@ theme.titlebar_maximized_button_focus_active  = config_dir .. "/themes/downbe/ti
 
 -- You can use your own command to set your wallpaper
 -- theme.wallpaper_cmd = { "awsetbg /drum/misc/img/pool_balls.jpg" }
-theme.wallpaper_cmd = { "feh --bg-fill /home/noah/Desktop/selma.jpg" }
+-- theme.wallpaper_cmd = { "feh --bg-fill /home/noah/Desktop/selma.jpg" }
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = config_dir .. "/themes/downbe/layouts/fairhw.png"
