@@ -7,8 +7,12 @@ require("beautiful")
 
 -- tagging
 -- require("eminent")
--- Notification library
+--
+-- notifications library
 require("naughty")
+
+--  widget library
+-- require("vicious")
 
 config_dir = awful.util.getdir("config")
 -- lua join()
@@ -17,11 +21,12 @@ script_dir = table.concat({config_dir, "scripts"}, "/")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init(config_dir .. "/themes/downbe/theme.lua")
+beautiful.init(config_dir .. "/themes/theme.lua")
+--                                    ^ N.B. symlink
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -53,15 +58,10 @@ layouts =
 -- {{{ Tags
 tag_names = 
 {
-  "term", 
-  "web", 
-  "dev", 
-  "scrap",
-  "uchicago",
-  "kent",
-  "mutt",
-  "rtorrent",
-  "logs" 
+  "esq", 
+  "7be",
+  "web",
+  "scratch",
 }
 
 -- number the tag names
@@ -255,14 +255,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1)end),
 
     -- keybindings
-    awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot")end),
+    awful.key({ modkey }, "Print", function () awful.util.spawn("gnome-screenshot")end),
+    awful.key({ modkey, "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -w")end),
 
     -- winamp-style hotkeys, baby!
     --
     -- Up:      Num Pad up
     -- Down:    Num Pad down
-    awful.key({ modkey, "Control", }, "Up",     function () awful.util.spawn(script_dir .. "/global_adjust_volume.sh +",false)end),
-    awful.key({ modkey, "Control", }, "Down",   function () awful.util.spawn(script_dir .. "/global_adjust_volume.sh -",false)end),
+    awful.key({ modkey, "Control", }, "Up",     function () awful.util.spawn(script_dir .. "/global_volume.sh +",false)end),
+    awful.key({ modkey, "Control", }, "Down",   function () awful.util.spawn(script_dir .. "/global_volume.sh -",false)end),
 
     -- playlist
     -- Next:    Page Down
@@ -375,12 +376,12 @@ client.add_signal("manage", function (c, startup)
     -- awful.titlebar.add(c, { modkey = modkey })
 
     -- Enable sloppy focus
-    c:add_signal("mouse::enter", function(c)
-        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-            and awful.client.focus.filter(c) then
-            client.focus = c
-        end
-    end)
+    -- c:add_signal("mouse::enter", function(c)
+    --     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+    --         and awful.client.focus.filter(c) then
+    --         client.focus = c
+    --     end
+    -- end)
 
     if not startup then
         -- Set the windows at the slave,
@@ -402,7 +403,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- ==============================================================[Status bar stuff ]
 
--- TODO make this less verbose, stop abusing lua
+-- TODO move all to vicious, stop abusing lua
 
 -- Functions
 function yaourt_updates()
@@ -425,32 +426,33 @@ function uptime()
         return r
 end
 
-function email()
-        local e = awful.util.pread("ls /drum/d/noah@downbe.at/INBOX/new|wc -l|tr '\n' ' '")
-        return e .. "unread emails"
-end
-
 function volume()
 end
 
 -- setup boxes for each screen
-mybwibox = {}
-yaourtbox = {}
-cmusbox = {}
-uptimebox = {}
--- rtorrentbox = {}
--- emailbox = {}
-
-mybwibox = awful.wibox({ position = "bottom", screen = 1})
-delim = ' | '
+mybwibox    = {}
+yaourtbox   = {}
+cmusbox     = {}
+uptimebox   = {}
+mybwibox    = awful.wibox({ position = "bottom", screen = 1})
+delim       = ' | '
 
 for s=1, screen.count() do
-        yaourtbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        cmusbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        -- rtorrentbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        uptimebox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        -- emailbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        delimiter = widget({ type = "textbox", })
+        yaourtbox = widget({ 
+          type    = "textbox", 
+          layout  = awful.widget.layout.horizontal.leftright 
+        })
+        cmusbox   = widget({ 
+          type    = "textbox", 
+          layout  = awful.widget.layout.horizontal.leftright
+        })
+        uptimebox = widget({ 
+          type    = "textbox", 
+          layout  = awful.widget.layout.horizontal.leftright
+        })
+        delimiter = widget({ 
+          type    = "textbox",
+        })
 end
 
 mybwibox.widgets = {
@@ -458,36 +460,26 @@ mybwibox.widgets = {
         delimiter,
         yaourtbox,
         delimiter,
-        -- rtorrentbox,
-        -- delimiter,
         uptimebox,
-        delimiter,
-        -- emailbox,
-        -- delimiter,
         layout = awful.widget.layout.horizontal.leftright
 }
 
-cmusbox.text = cmus_status()
-uptimebox.text = uptime()
-yaourtbox.text = yaourt_updates()
--- rtorrentbox.text = rtorrent_status()
--- emailbox.text = email()
-delimiter.text = delim
+-- set initial values
+cmusbox.text    = cmus_status()
+uptimebox.text  = uptime()
+yaourtbox.text  = yaourt_updates()
+delimiter.text  = delim
 
--- 
--- timers
-ten_second_timer = timer { timeout = 10}
-ten_second_timer:add_signal("timeout", function()
+-- register timer callbacks
+hour_timer = timer { timeout = 60 * 60 }
+hour_timer:add_signal("timeout", function()
         yaourtbox.text = yaourt_updates()
-        -- rtorrentbox.text = rtorrent_status()
-        -- emailbox.text = email()
 end)
-ten_second_timer:start()
-
-
-one_second_timer = timer { timeout = 1}
+one_second_timer = timer { timeout = 1 }
 one_second_timer:add_signal("timeout", function()
         cmusbox.text = cmus_status()
         uptimebox.text = uptime()
 end)
+
+hour_timer:start()
 one_second_timer:start()
