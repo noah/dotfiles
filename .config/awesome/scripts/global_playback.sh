@@ -10,20 +10,18 @@ if [[ $# -ne 1 ]]; then
   exit 1
 fi
 
-cmus-remote -Q
+cmus-remote -Q > /dev/null
 if [[ $? -eq 0 ]]; then
-  cmus-remote --$1
-  exit 0
+  echo player-$1 | cmus-remote
 else
   # scriptable consumer electronics are sooooooooooooooooooo rad
-  # http://downbe:9000/html/docs/cli-api.html?player=#mixer%20volume
+  # http://7be:9000/html/docs/cli-api.html?player=#mixer%20volume
   HOST=7be
   PORT=9090
   player_id="00:04:20:12:97:e5"
 
   case $1 in 
     "next")
-      playlist_cmd="index +1"
       (echo "$player_id playlist index +1"; sleep 1)|telnet $HOST $PORT
       ;;
     "prev")
