@@ -58,10 +58,12 @@ layouts =
 -- {{{ Tags
 tag_names = 
 {
-  "esq", 
-  "7be",
   "web",
-  "scratch",
+  "term",
+  "vim",
+  "diff",
+  "vbox",
+  "scrap",
 }
 
 -- number the tag names
@@ -416,9 +418,9 @@ function cmus_status()
         return ' cmus ' .. c
 end
 
--- function rtorrent_status()
-        -- local r = awful.util.pread("/home/noah/.config/awesome/scripts/rtorrent_status.sh")
-        -- return 'rtorrent ' .. r
+-- function k750_lux_charge()
+--         local c = awful.util.pread(script_dir .. "/k750_status.py")
+--         -- return ' lux
 -- end
 
 function uptime()
