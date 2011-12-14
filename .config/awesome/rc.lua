@@ -5,6 +5,9 @@ require("awful.rules")
 -- Theme handling library
 require("beautiful")
 
+-- my stuff
+require("nkt")
+
 -- tagging
 -- require("eminent")
 --
@@ -418,6 +421,12 @@ function cmus_status()
         return ' cmus ' .. c
 end
 
+-- logitech k750 solar keyboard charge and lux readings
+function solar_kb_status()
+        local cl = string.split(awful.util.pread("python2 /home/noah/gits/github/logitech-solar-k750-linux/logitech_k750.py"), ",")
+        return ' charge ' .. cl[1] .. ' lux ' .. cl[2]
+end
+
 -- function k750_lux_charge()
 --         local c = awful.util.pread(script_dir .. "/k750_status.py")
 --         -- return ' lux
@@ -436,6 +445,7 @@ mybwibox    = {}
 yaourtbox   = {}
 cmusbox     = {}
 uptimebox   = {}
+solarkbbox  = {}
 mybwibox    = awful.wibox({ position = "bottom", screen = 1})
 delim       = ' | '
 
@@ -452,6 +462,7 @@ for s=1, screen.count() do
           type    = "textbox", 
           layout  = awful.widget.layout.horizontal.leftright
         })
+        solarkbbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
         delimiter = widget({ 
           type    = "textbox",
         })
@@ -463,6 +474,8 @@ mybwibox.widgets = {
         yaourtbox,
         delimiter,
         uptimebox,
+        delimiter,
+        solarkbbox,
         layout = awful.widget.layout.horizontal.leftright
 }
 
@@ -471,17 +484,26 @@ cmusbox.text    = cmus_status()
 uptimebox.text  = uptime()
 yaourtbox.text  = yaourt_updates()
 delimiter.text  = delim
+solarkbbox.text = solar_kb_status()
 
 -- register timer callbacks
+--
+one_second_timer = timer { timeout = 1 }
+two_second_timer = timer { timeout = 2 }
 hour_timer = timer { timeout = 60 * 60 }
+
 hour_timer:add_signal("timeout", function()
         yaourtbox.text = yaourt_updates()
 end)
-one_second_timer = timer { timeout = 1 }
 one_second_timer:add_signal("timeout", function()
         cmusbox.text = cmus_status()
         uptimebox.text = uptime()
 end)
+two_second_timer:add_signal("timeout", function()
+  solarkbbox.text = solar_kb_status()
+end)
 
+--
 hour_timer:start()
 one_second_timer:start()
+two_second_timer:start()

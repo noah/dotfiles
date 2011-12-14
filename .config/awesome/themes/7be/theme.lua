@@ -6,8 +6,8 @@ theme = {}
 theme.font          = "Monaco 8"
 
 -- You can use your own command to set your wallpaper
--- theme.wallpaper_cmd = { "feh --bg-scale /home/noah/img/background" }
-theme.wallpaper_cmd = { "awsetbg -a /home/noah/lauves_bw.jpg" }   
+theme.wallpaper_cmd = { "feh --bg-fill /home/noah/background" }
+-- theme.wallpaper_cmd = { "awsetbg -a /home/noah/lauves_bw.jpg" }   
 
 theme.bg_normal     = "#121212"
 theme.bg_focus      = "#000000"
