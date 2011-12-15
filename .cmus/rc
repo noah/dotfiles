@@ -1,0 +1,3 @@
+set status_display_program=/home/noah/.cmus/cmuscrobbler.py
+bind common ^U win-page-up
+bind common ^D win-page-down
