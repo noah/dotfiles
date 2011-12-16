@@ -8,6 +8,8 @@ require("beautiful")
 -- my stuff
 require("nkt")
 
+-- N.B.:  Lua has 1-base indices
+
 -- tagging
 -- require("eminent")
 --
@@ -407,38 +409,31 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 
 -- ==============================================================[Status bar stuff ]
+-- STATUS BAR FUNCTIONS
+--
+--
 
--- TODO move all to vicious, stop abusing lua
-
--- Functions
-function yaourt_updates()
+yaourt = function()
         local y = awful.util.pread("/usr/bin/yaourt -Qu|wc -l|tr '\n' ' '")
         return y .. 'yaourt updates available'
 end
 
-function cmus_status()
+cmus = function ()
         local c = awful.util.pread(script_dir .. "/cmus_status.sh")
         return ' cmus ' .. c
 end
 
 -- logitech k750 solar keyboard charge and lux readings
-function solar_kb_status()
+solar_kb = function()
         local cl = string.split(awful.util.pread("python2 /home/noah/gits/github/logitech-solar-k750-linux/logitech_k750.py"), ",")
         return ' charge ' .. cl[1] .. ' lux ' .. cl[2]
 end
-
--- function k750_lux_charge()
---         local c = awful.util.pread(script_dir .. "/k750_status.py")
---         -- return ' lux
--- end
 
 function uptime()
         local r = awful.util.pread("uptime|cut -d ' ' -f 3-")
         return r
 end
 
-function volume()
-end
 
 -- setup boxes for each screen
 mybwibox    = {}
@@ -449,6 +444,7 @@ solarkbbox  = {}
 mybwibox    = awful.wibox({ position = "bottom", screen = 1})
 delim       = ' | '
 
+-- create widget box layout for all screens
 for s=1, screen.count() do
         yaourtbox = widget({ 
           type    = "textbox", 
@@ -479,31 +475,28 @@ mybwibox.widgets = {
         layout = awful.widget.layout.horizontal.leftright
 }
 
--- set initial values
-cmusbox.text    = cmus_status()
-uptimebox.text  = uptime()
-yaourtbox.text  = yaourt_updates()
-delimiter.text  = delim
-solarkbbox.text = solar_kb_status()
+delimiter.text = delim
 
--- register timer callbacks
---
-one_second_timer = timer { timeout = 1 }
-two_second_timer = timer { timeout = 2 }
-hour_timer = timer { timeout = 60 * 60 }
+-- TODO it can probably be compressed more
 
-hour_timer:add_signal("timeout", function()
-        yaourtbox.text = yaourt_updates()
-end)
-one_second_timer:add_signal("timeout", function()
-        cmusbox.text = cmus_status()
-        uptimebox.text = uptime()
-end)
-two_second_timer:add_signal("timeout", function()
-  solarkbbox.text = solar_kb_status()
-end)
+timers = {
+  -- function   = { target, period}
+  --    *that's right, functions can be keys in lua
+  [cmus]        = { cmusbox,        1 },
+  [solar_kb]    = { solarkbbox,     10 },
+  [uptime]      = { uptimebox,      60 },
+  [yaourt]      = { yaourtbox,      60*60 },
+}
 
---
-hour_timer:start()
-one_second_timer:start()
-two_second_timer:start()
+-- Timers:
+--  Set text value of d[0] to value of f every d[1] seconds
+for f, d in pairs(timers) do
+  -- Set initial values
+  d[1].text = f()
+  
+  t = timer({ timeout = d[2] })
+  t:add_signal("timeout", function()
+    d[1].text = f()
+  end)
+  t:start()
+end
