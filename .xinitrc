@@ -17,3 +17,4 @@ xrandr --addmode DVI-D-1 "1920x1080_60.00"
 xrandr --output DVI-D-1 --mode 1920x1080_60.00
 exec awesome
 #exec gnome-session
+#exec subtle
