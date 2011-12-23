@@ -57,15 +57,22 @@ layouts =
 -- {{{ Tags
 tag_names = 
 {
-  "esq", 
-  "7be",
-  "web",
-  "scratch",
+  "1", 
+  "2", 
+  "3", 
+  "4", 
+  "5", 
+  "6", 
+  "7", 
+  "8", 
+  "9", 
+  "0", 
 }
 
 -- number the tag names
 for T = 1, table.getn(tag_names) do
-  tag_names[T] = (T .. " " .. tag_names[T])
+  -- tag_names[T] = (T .. " " .. tag_names[T])
+  tag_names[T] = tag_names[T]
 end
 
 -- Define a tag table which hold all screen tags.
