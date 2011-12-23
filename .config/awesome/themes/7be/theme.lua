@@ -6,7 +6,11 @@ theme = {}
 theme.font          = "Monaco 11"
 
 -- You can use your own command to set your wallpaper
+<<<<<<< HEAD:.config/awesome/themes/esq/theme.lua
 theme.wallpaper_cmd = { "awsetbg -a /home/noah/img/lauves_bw.jpg" }   
+=======
+-- theme.wallpaper_cmd = { "awsetbg -a /home/noah/lauves_bw.jpg" }   
+>>>>>>> d9c9514851c41ca8903d6df7bcee3497c5a9195f:.config/awesome/themes/7be/theme.lua
 -- theme.wallpaper_cmd = { "feh --bg-scale /home/noah/img/background" }
 
 theme.bg_normal     = "#121212"
