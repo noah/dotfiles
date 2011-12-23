@@ -3,20 +3,20 @@
 ---------------------------
 
 theme = {}
-theme.font          = "Monaco 8"
+theme.font          = "Monaco 11"
 
 -- You can use your own command to set your wallpaper
--- theme.wallpaper_cmd = { "awsetbg -a /home/noah/lauves_bw.jpg" }   
-theme.wallpaper_cmd = { "feh --bg-scale /home/noah/img/background" }
+theme.wallpaper_cmd = { "awsetbg -a /home/noah/img/lauves_bw.jpg" }   
+-- theme.wallpaper_cmd = { "feh --bg-scale /home/noah/img/background" }
 
 theme.bg_normal     = "#121212"
 theme.bg_focus      = "#000000"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 
-theme.fg_normal     = "#808080"
-theme.fg_focus      = "#d3d3d3"
-theme.fg_urgent     = "#ffffff"
+theme.fg_normal     = "#ffffff"
+theme.fg_focus      = "#d7ff00"
+theme.fg_urgent     = "#b84eef"
 theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
