@@ -9,7 +9,9 @@ declare -A status_symbols=(
         ['status stopped']='.'
         ['status paused']='='
 )
-status_symbol="${status_symbols[${CMUS[0]}]}"
+
+cmus_status=${CMUS[0]}
+status_symbol="${status_symbols[$cmus_status]}"
 
 play_stub(){
   artist=${CMUS[4]}
@@ -34,8 +36,8 @@ progress(){
 
 status() {
   if [[ $cmus_remote_q != "cmus-remote: cmus is not running" ]]; then
-    if [[ "$status_symbol" == 'status stopped' ]]; then
-      echo $status_symbol
+    if [[ "$cmus_status" == 'status stopped' ]]; then
+      echo "$status_symbol"
     else
       progress
       echo -n "$status_symbol "
