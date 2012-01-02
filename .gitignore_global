@@ -1,0 +1,33 @@
+# compiled
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# compressed
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS-generated
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# editors
+*.swp
+*.swo
