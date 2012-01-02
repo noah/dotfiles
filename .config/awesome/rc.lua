@@ -5,29 +5,32 @@ require("awful.rules")
 -- Theme handling library
 require("beautiful")
 
--- my stuff
-require("nkt")
-
 -- N.B.:  Lua has 1-base indices
-
--- tagging
--- require("eminent")
+-- N.B.:  Lua is fugly
 --
--- notifications library
+-- TODO: Strip out the embedded lua and do this in python.  Subtle has
+-- done it in ruby but the tiling sucks.  The widget manager is pimp tho
+
+-- notifications
 require("naughty")
 
 --  widget library
 -- require("vicious")
 
+-- my stuff
+require("nkt")
+
 config_dir = awful.util.getdir("config")
--- lua join()
 script_dir = table.concat({config_dir, "scripts"}, "/")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 beautiful.init(config_dir .. "/themes/theme.lua")
---                                    ^ N.B. symlink
+--                                    ^ symlink
+--
+-- N.B. colors defined in theme.lua are available as properties of
+-- beautiful (e.g., beautiful.border_color)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -248,7 +251,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal)end),
+    awful.key({ modkey,           }, "Return", function() awful.util.spawn(terminal, false) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -262,34 +265,39 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1)end),
 
     -- keybindings
-    awful.key({ modkey }, "Print", function () awful.util.spawn("gnome-screenshot")end),
-    awful.key({ modkey, "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -w")end),
+    awful.key({ modkey }, "Print", function () awful.util.spawn("gnome-screenshot", false)end),
+    awful.key({ modkey, "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -w", false)end),
 
-    -- winamp-style hotkeys, baby!
-    --
-    -- Up:      Num Pad up
-    -- Down:    Num Pad down
-    awful.key({ modkey, "Control", }, "Up",     function () awful.util.spawn(script_dir .. "/global_volume.sh +",false)end),
-    awful.key({ modkey, "Control", }, "Down",   function () awful.util.spawn(script_dir .. "/global_volume.sh -",false)end),
-
+    -- winamp-stylez
+    -- volume
+    --  Up:      Num Pad up
+    --  Down:    Num Pad down
     -- playlist
-    -- Next:    Page Down
-    -- Prior:   Page Up
-    -- Home:    Home key
-    awful.key({ modkey, "Control", }, "Next",   function () awful.util.spawn(script_dir .. "/global_playback.sh next",false)end),
-    awful.key({ modkey, "Control", }, "Prior",  function () awful.util.spawn(script_dir .. "/global_playback.sh prev",false)end),
-    awful.key({ modkey, "Control", }, "Home",   function () awful.util.spawn(script_dir .. "/global_playback.sh pause",false)end),
+    --  Next:    Page Down
+    --  Prior:   Page Up
+    --  Home:    Home key
+    awful.key({ modkey, "Control", }, 
+                "Up",     function () awful.util.spawn(script_dir .. "/volume.sh +",false)  end),
+    awful.key({ modkey, "Control", }, 
+                "Down",   function () awful.util.spawn(script_dir .. "/volume.sh -",false)  end),
+    awful.key({ modkey, "Control", }, 
+                "Next",   function () awful.util.spawn(script_dir .. "/playback.sh next",false) end),
+    awful.key({ modkey, "Control", }, 
+                "Prior",  function () awful.util.spawn(script_dir .. "/playback.sh prev",false) end),
+    awful.key({ modkey, "Control", }, 
+                "Home",   function () awful.util.spawn(script_dir .. "/playback.sh pause",false)    end),
 
     -- Prompt
-    awful.key({ modkey },     "p",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey }, "p",     function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end)
+    -- run lua code.  what anyone would use this for I have no idea
+    -- awful.key({ modkey }, "x",
+    --           function ()
+    --               awful.prompt.run({ prompt = "Run Lua code: " },
+    --               mypromptbox[mouse.screen].widget,
+    --               awful.util.eval, nil,
+    --               awful.util.getdir("cache") .. "/history_eval")
+    --           end)
 )
 
 clientkeys = awful.util.table.join(
@@ -364,8 +372,8 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
+    -- { rule = { class = "MPlayer" },
+    -- properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
@@ -408,37 +416,11 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 
--- ==============================================================[Status bar stuff ]
--- STATUS BAR FUNCTIONS
---
---
-
-yaourt = function()
-        local y = awful.util.pread("/usr/bin/yaourt -Qu|wc -l|tr '\n' ' '")
-        return y .. 'yaourt updates available'
-end
-
-cmus = function ()
-        local c = awful.util.pread(script_dir .. "/cmus_status.sh")
-        return ' cmus ' .. c
-end
-
--- logitech k750 solar keyboard charge and lux readings
-solar_kb = function()
-        local cl = string.split(awful.util.pread("python2 /home/noah/gits/github/logitech-solar-k750-linux/logitech_k750.py"), ",")
-        return ' charge ' .. cl[1] .. ' lux ' .. cl[2]
-end
-
-function uptime()
-        local r = awful.util.pread("uptime|cut -d ' ' -f 3-")
-        return r
-end
-
-
 -- setup boxes for each screen
 mybwibox    = {}
 yaourtbox   = {}
 cmusbox     = {}
+volbox      = {}
 uptimebox   = {}
 solarkbbox  = {}
 mybwibox    = awful.wibox({ position = "bottom", screen = 1})
@@ -446,49 +428,60 @@ delim       = ' | '
 
 -- create widget box layout for all screens
 for s=1, screen.count() do
-        yaourtbox = widget({ 
-          type    = "textbox", 
-          layout  = awful.widget.layout.horizontal.leftright 
+        yaourtbox   = widget({ 
+          type      = "textbox", 
+          layout    = awful.widget.layout.horizontal.leftright 
         })
-        cmusbox   = widget({ 
-          type    = "textbox", 
-          layout  = awful.widget.layout.horizontal.leftright
+        volbox      = widget({
+          type      = "textbox",
+          layout    =   awful.widget.layout.horizontal.leftright
         })
-        uptimebox = widget({ 
-          type    = "textbox", 
-          layout  = awful.widget.layout.horizontal.leftright
+        cmusbox     = widget({ 
+          type      = "textbox", 
+          layout    = awful.widget.layout.horizontal.leftright
         })
-        solarkbbox = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        delimiter = widget({ 
-          type    = "textbox",
+        uptimebox   = widget({ 
+          type      = "textbox", 
+          layout    = awful.widget.layout.horizontal.leftright
+        })
+        kbbox       = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
+        delimiter   = widget({ 
+          type      = "textbox",
         })
 end
 
 mybwibox.widgets = {
         cmusbox,
         delimiter,
+        volbox,
+        delimiter,
         yaourtbox,
         delimiter,
         uptimebox,
         delimiter,
-        solarkbbox,
+        kbbox,
         layout = awful.widget.layout.horizontal.leftright
 }
 
 delimiter.text = delim
 
--- TODO it can probably be compressed more
+-- table of async timers
 
+local c = beautiful.border_focus
 timers = {
   -- function   = { target, period}
-  --    *that's right, functions can be keys in lua
-  [cmus]        = { cmusbox,        1 },
-  [solar_kb]    = { solarkbbox,     10 },
-  [uptime]      = { uptimebox,      60 },
-  [yaourt]      = { yaourtbox,      60*60 },
+  --    *functions can be keys*
+  --
+  -----------------------------------------------------------------------
+  [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
+  [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
+  [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
+  [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
+  [function() return color(' yt ',  c)    .. run_script("yaourt.sh")   end] = { yaourtbox,  60*60 }
+  -----------------------------------------------------------------------
 }
 
--- Timers:
+-- Register signals:
 --  Set text value of d[0] to value of f every d[1] seconds
 for f, d in pairs(timers) do
   -- Set initial values
