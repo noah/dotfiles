@@ -9,7 +9,7 @@
 
 if [[ $# -ne 1 ]]; then
   # print the volume level and die
-  echo -n $(cut -d '[' -f 2 <<<"$(amixer get Master | tail -n 1)" | sed 's/%.*//g')
+  echo -n "$(cut -d '[' -f 2 <<<"$(amixer get Master | tail -n 1)" | sed 's/%.*//g')%"
   exit 0
 fi
 
