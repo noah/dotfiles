@@ -288,7 +288,7 @@ globalkeys = awful.util.table.join(
                 "Home",   function () awful.util.spawn(script_dir .. "/playback.sh pause",false)    end),
 
     -- Prompt
-    awful.key({ modkey }, "p",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey }, "p",     function () mypromptbox[mouse.screen]:run() end)
 
     -- run lua code.  what anyone would use this for I have no idea
     -- awful.key({ modkey }, "x",
