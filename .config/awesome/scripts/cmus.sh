@@ -39,9 +39,7 @@ status() {
     if [[ "$cmus_status" == 'status stopped' ]]; then
       echo "$status_symbol"
     else
-      progress
-      echo -n "$status_symbol "
-      play_stub
+      echo "$(progress)$status_symbol $(play_stub)"
       echo
     fi
   else
