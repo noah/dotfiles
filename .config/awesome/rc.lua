@@ -69,8 +69,7 @@ tag_names =
   "web",
   "term",
   "vim",
-  "diff",
-  "vbox",
+  "uc",
   "scrap",
 }
 
