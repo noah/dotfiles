@@ -8,4 +8,6 @@ urxvtd -q -o -f
 XSESS=awesome
 #XSESS=gnome-session
 
+disper -S
+
 exec $XSESS
