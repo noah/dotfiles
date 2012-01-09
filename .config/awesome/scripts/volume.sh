@@ -7,14 +7,22 @@
 # Usage:
 #   ./volume.sh [+|-|]
 
-if [[ $# -ne 1 ]]; then
-  # print the volume level and die
-  echo -n "$(cut -d '[' -f 2 <<<"$(amixer get Master | tail -n 1)" | sed 's/%.*//g')%"
-  exit 0
-fi
+have_pulse="$(pgrep -u root pulse)"
 
-# set the volume level
-amixer -Dpulse -q -c 0 set Master 1$1
+if [[ -n $have_pulse ]]; then 
+  # pulse is running.  do stuff
+
+  if [[ $# -ne 1 ]]; then
+    # print the volume level and die
+    echo -n "$(cut -d '[' -f 2 <<<"$(amixer get Master | tail -n 1)" | sed 's/%.*//g')%"
+    exit 0
+  fi
+
+  amixer -Dpulse -q -c 0 set Master 1$1
+else
+  echo -n "0% (no pulse)"
+
+fi
 
 ###
 # Squeezebox
