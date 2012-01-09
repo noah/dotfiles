@@ -86,7 +86,7 @@ theme.layout_tileleft = "/home/noah/.config/awesome/themes/default/layouts/tilel
 theme.layout_tile = "/home/noah/.config/awesome/themes/default/layouts/tilew.png"
 theme.layout_tiletop = "/home/noah/.config/awesome/themes/default/layouts/tiletopw.png"
 
-theme.awesome_icon = "/home/noah/.config/awesome/icons/n0ah16.png"
+theme.awesome_icon = "/home/noah/.config/awesome/themes/7be/awesome-icon.png"
 
 return theme
 -- vim: filetype=lua
