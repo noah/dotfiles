@@ -7,7 +7,7 @@
 # Usage:
 #   ./volume.sh [+|-|]
 
-have_pulse="$(pgrep -u root pulse)"
+have_pulse="$(pgrep -u $(whoami) pulse)"
 
 if [[ -n $have_pulse ]]; then 
   # pulse is running.  do stuff
