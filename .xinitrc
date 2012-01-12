@@ -17,6 +17,7 @@ urxvtd -q -f -o
 #xrandr --output DVI-D-1 --mode 1920x1080_60.00
 # eeepc
 xrandr -s 1920x1080
+gnome-settings-daemon&
 exec awesome
 #exec gnome-session
 #exec subtle
