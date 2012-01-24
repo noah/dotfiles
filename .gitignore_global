@@ -21,6 +21,7 @@
 *.log
 *.sql
 *.sqlite
+*.out
 
 # OS-generated
 .DS_Store*

@@ -5,9 +5,10 @@ xrdb -merge $HOME/.Xdefaults
 #xscreensaver -no-splash &
 #gnome-power-manager&
 
-gnome-settings-daemon&
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
+
+/home/noah/bin/gnome-settings-daemon&
 
 urxvtd -q -f -o
 #exec wmii
@@ -17,7 +18,6 @@ urxvtd -q -f -o
 #xrandr --output DVI-D-1 --mode 1920x1080_60.00
 # eeepc
 xrandr -s 1920x1080
-gnome-settings-daemon&
 exec awesome
 #exec gnome-session
 #exec subtle
