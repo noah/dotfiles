@@ -434,75 +434,74 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 -- TODO
--- -- setup boxes for each screen
 mybwibox    = {}
 yaourtbox   = {}
 cmusbox     = {}
 volbox      = {}
 uptimebox   = {}
-solarkbbox  = {}
-mybwibox    = awful.wibox({ position = "bottom", screen = 1})
-delim       = ' | '
--- 
--- -- create widget box layout for all screens
--- for s=1, screen.count() do
---         yaourtbox   = widget({ 
---           type      = "textbox"
---         })
---         volbox      = widget({
---           type      = "textbox"
---         })
---         cmusbox     = widget({ 
---           type      = "textbox"
---         })
---         uptimebox   = widget({ 
---           type      = "textbox"
---         })
---         kbbox       = widget({ type = "textbox"})
---         delimiter   = widget({ 
---           type      = "textbox",
---         })
--- end
--- 
--- mybwibox.widgets = {
---         cmusbox,
---         delimiter,
---         volbox,
---         delimiter,
---         yaourtbox,
---         delimiter,
---         uptimebox,
---         delimiter,
---         kbbox
--- }
--- 
--- delimiter.text = delim
--- 
--- -- table of async timers
--- 
--- local c = beautiful.border_focus
--- timers = {
---   -- function   = { target, period}
---   --    *functions can be keys*
---   --
---   -----------------------------------------------------------------------
---   [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
---   [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
---   [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
---   [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
---   [function() return color(' yt ',  c)    .. run_script("yaourt.sh")   end] = { yaourtbox,  60*60 }
---   -----------------------------------------------------------------------
--- }
--- 
--- -- Register signals:
--- --  Set text value of d[0] to value of f every d[1] seconds
--- for f, d in pairs(timers) do
---   -- Set initial values
---   d[1].text = f()
---   
---   t = timer({ timeout = d[2] })
---   t:connect_signal("timeout", function()
---     d[1].text = f()
---   end)
---   t:start()
--- end
+kbbox       = {}
+delimbox    = {}
+
+for s=1, screen.count() do
+
+  yaourtbox     = wibox.widget.textbox()
+  cmusbox       = wibox.widget.textbox()
+  volbox        = wibox.widget.textbox()
+  uptimebox     = wibox.widget.textbox()
+  kbbox         = wibox.widget.textbox()
+  delimbox      = wibox.widget.textbox()
+
+  mybwibox[s] = awful.wibox({ position = "bottom", screen = s })
+
+  -- Widgets that are aligned to the left (order matters)
+  local left_layout = wibox.layout.fixed.horizontal()
+  left_layout:add(volbox)
+  left_layout:add(cmusbox)
+
+  -- Widgets that are aligned to the right
+  local right_layout = wibox.layout.fixed.horizontal()
+  -- if s == 1 then right_layout:add(wibox.widget.systray()) end
+  right_layout:add(kbbox)
+  right_layout:add(yaourtbox)
+  right_layout:add(uptimebox)
+
+
+  -- Now bring it all together (with the tasklist in the middle)
+  local layout = wibox.layout.align.horizontal()
+  layout:set_left(left_layout)
+  -- layout:set_middle(mytasklist[s])
+  layout:set_right(right_layout)
+
+  mybwibox[s]:set_widget(layout)
+end
+
+wibox.widget.textbox.set_markup(delimbox, ' | ')
+
+-- table of async timers
+
+local c = beautiful.border_focus
+timers = {
+  -- function   = { target, period}
+  --    *functions can be keys*
+  --
+  -----------------------------------------------------------------------
+  [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
+  [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
+  [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
+  [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
+  [function() return color(' yt ',  c)    .. run_script("yaourt.sh")   end] = { yaourtbox,  60*60 }
+  -----------------------------------------------------------------------
+}
+
+-- Register signals:
+--  Set text value of d[0] to value of f every d[1] seconds
+for f, d in pairs(timers) do
+  -- Set initial values
+  wibox.widget.textbox.set_markup(d[1], f())
+  
+  t = timer({ timeout = d[2] })
+  t:connect_signal("timeout", function()
+    wibox.widget.textbox.set_markup(d[1], f())
+  end)
+  t:start()
+end
