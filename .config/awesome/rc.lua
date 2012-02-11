@@ -278,8 +278,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1)end),
 
     -- keybindings
-    awful.key({ modkey }, "Print", function () awful.util.spawn("gnome-screenshot", false)end),
-    awful.key({ modkey, "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -w", false)end),
+    awful.key({ modkey }, "Print", function () awful.util.spawn("scrot", false)end),
+    -- awful.key({ modkey, "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -w", false)end),
 
     -- winamp-stylez
     -- volume
@@ -396,6 +396,8 @@ awful.rules.rules = {
     -- properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    { rule = { class = "xboard" },
+      properties = { floating = true, ontop=true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
@@ -487,7 +489,8 @@ timers = {
   -----------------------------------------------------------------------
   [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
   [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
-  [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
+  -- 
+  -- [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      2    },
   [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
   [function() return color(' yt ',  c)    .. run_script("yaourt.sh")   end] = { yaourtbox,  60*60 }
   -----------------------------------------------------------------------
