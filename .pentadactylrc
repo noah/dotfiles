@@ -29,7 +29,7 @@ set showstatuslinks=1
 set showtabline=1
 "
 "disable beep
-javascript liberator.beep = function() { return false; }
+" javascript liberator.beep = function() { return false; }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -43,6 +43,7 @@ map k 10<C-y>
 map <C-f> /
 " _hells_ yeah.
 map <C-d> :pinboard<CR>
+map <C-m> :milk<CR>
 
 set editor="gvim -f"
 
@@ -81,5 +82,6 @@ set hintkeys="asdfg;lkjh"
 "
 command! pinboard :open javascript:q=location.href;if(document.getSelection){d=document.getSelection();}else{d='';};p=document.title;void(open('https://pinboard.in/add?showtags=yes&url='+encodeURIComponent(q)+'&description='+encodeURIComponent(d)+'&title='+encodeURIComponent(p),'Pinboard',%20'toolbar=no,width=700,height=600')); 
 
+command! milk :tabopen http://rememberthemilk.com
 
 " vim: ft=vim

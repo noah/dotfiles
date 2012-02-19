@@ -3,11 +3,8 @@ urxvt.internalBorder:   6
 urxvt.externalBorder:   0
 urxvt.urgentOnBell:             true
 urxvt.cursorBlink:              true
-urxvt.cursorColor:             #FFA812
-urxvt.cursorColor2:            #000000
 urxvt.cursorUnderline: false
 
-urxvt*boldColors:off
 urxvt*buffered:true
 urxvt*depth:32
 urxvt*fading:0
@@ -31,14 +28,18 @@ urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 
-!urxvt*font:xft:Dina:medium:pixelsize=15:autohint=yes:antialias=no
-!urxvt*boldFont:xft:Dina:bold:pixelsize=15:autohint=yes:antialias=no
+!urxvt*font:xft:Dina:medium:pixelsize=14
+!urxvt*boldFont:xft:Dina:medium:pixelsize=14
 !
 urxvt*font:xft:Monaco:medium:pixelsize=11:autohint=yes:antialias=yes
 urxvt*boldFont:xft:Monaco:medium:pixelsize=11:autohint=yes:antialias=yes
 !
 !urxvt*font:xft:Inconsolata:medium:pixelsize=13:autohint=yes:antialias=yes
 !urxvt*boldFont:xft:Inconsolata:medium:pixelsize=13:autohint=yes:antialias=yes
+
+!urxvt*font: -*-proggycleanttsz-medium-*-normal-*-*-*-*-*-*-*-iso8859-*
+! bold does not work
+
 
 /*
 *
@@ -47,16 +48,20 @@ urxvt*boldFont:xft:Monaco:medium:pixelsize=11:autohint=yes:antialias=yes
 xft.dpi: 96
 xft.rgba: rgb
 !xft.antialias: true
-xft.hinting: true
+!xft.hinting: true
 ! hints{light, medium, full}
-xft.hintstyle: hintslight
+!xft.hintstyle: hintslight
 
 /*
 *       
 *       hyperlinks
 * */
-urxvt.perl-ext:           default,matcher
-urxvt*urlLauncher:firefox
+
+urxvt.perl-lib:           /home/tilton/.urxvt
+urxvt.keysym.Control-Shift-Up:      perl:font:increment
+urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+urxvt.perl-ext:           default,matcher,font
+urxvt*urlLauncher:/home/tilton/bin/google-chrome
 urxvt.matcher.button:     1
 urxvt.keysym.C-Delete:    perl:matcher
 urxvt.underlineURLs:      true
@@ -69,15 +74,49 @@ urxvt.underlineURLs:      true
 * */
 
 ! fg/bg
-urxvt*highlightColor:#444
-urxvt*background: #000
-urxvt*foreground: #d3d3d3
+urxvt*highlightColor:#444444
+urxvt*background: #121212
+urxvt*foreground: #ffffff
+urxvt.cursorColor:             gray
+urxvt.cursorColor2:            black
+urxvt*boldColors:off
 
-! theme
-!#include "/home/tilton/.colors/tango"
-!#include "/home/tilton/.colors/zenburn"
-#include "/home/tilton/.colors/gnome"
-!#include "/home/tilton/.colors/bright"
-!#include "/home/tilton/.colors/soft"
-!#include "/home/tilton/.colors/dark"
-!#include "/home/tilton/.colors/milk"
+! color theme
+!
+! todo: write a python script to output this
+!black
+urxvt*color0:    #6c6c6c
+! red
+urxvt*color1:    #fe021d
+! green
+urxvt*color2:    #00fc00
+! yellow
+urxvt*color3:    #fef500
+! blue
+urxvt*color4:    #00b4ff
+! magenta
+urxvt*color5:    #b84eef
+! cyan
+urxvt*color6:    #5aeaf7
+! white
+urxvt*color7:    #ffffff
+
+! Bold
+
+! black
+urxvt*color8:       #6c6c6c
+! red
+urxvt*color9:       #fe021d
+! green
+urxvt*color10:      #00fc00
+! yellow
+urxvt*color11:      #fef500
+! blue
+urxvt*color12:      #00b4ff
+! magenta
+urxvt*color13:      #b84eef
+! cyan
+urxvt*color14:      #5aeaf7
+! white
+urxvt*color15:      #ffffff
+
