@@ -4,7 +4,7 @@ screen 0
     {
         normal
         {
-            font = "monaco 8"
+            font = "monaco 10"
             fg = "#dddddd"
             bg = "#444444"
             border = "#555555"
@@ -154,12 +154,12 @@ rules
 
 mouse
 {
-    root
-    {
-        button = "3"
-        command = "spawn"
-        arg = "exec x-terminal-emulator"
-    }
+    # root
+    # {
+    #     button = "3"
+    #     command = "spawn"
+    #     arg = "exec x-terminal-emulator"
+    # }
     root
     {
         button = "4"
@@ -214,7 +214,7 @@ keys
         modkey = {"Mod1"}
         key = "p"
         command = "spawn"
-        arg = "find /usr/bin -type f -executable ! -empty | awesome-menu -e 'exec ' Execute:"
+        arg = "find /home/tilon/bin /usr/bin -type f -executable ! -empty | awesome-menu -e '/home/tilton/bin/trier ' Execute:"
     }
     key
     {
