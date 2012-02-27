@@ -343,18 +343,18 @@ keys
         key = "Escape"
         command = "tag_prev_selected"
     }
-    key
-    {
-        modkey = {"Mod1"}
-        key = "Left"
-        command = "tag_viewprev"
-    }
-    key
-    {
-        modkey = {"Mod1"}
-        key = "Right"
-        command = "tag_viewnext"
-    }
+    # key
+    # {
+    #     modkey = {"Mod1"}
+    #     key = "Left"
+    #     command = "tag_viewprev"
+    # }
+    # key
+    # {
+    #     modkey = {"Mod1"}
+    #     key = "Right"
+    #     command = "tag_viewnext"
+    # }
     key
     {
         modkey = {"Mod1"}
