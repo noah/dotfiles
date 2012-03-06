@@ -70,7 +70,9 @@ Xcursor.theme: Vanilla-DMZ-AA
  
 ! readable bold characters:
 !
-urxvt*font:	xft:Monaco:medium:pixelsize=13
+!
+urxvt*font:	xft:Monaco:medium:pixelsize=16
+
 !urxvt*boldFont:	xft:Monaco:bold:pixelsize=13:autohint=true:antialias=true
  
 !urxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
