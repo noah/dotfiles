@@ -10,4 +10,7 @@
 [difftool]
 	prompt = false
 [alias]
-	d = difftool
+  d = difftool
+[github]
+  user = noah
+  token = 6ba2b5b0cf5b89da46cfbee44a9ef16b           
