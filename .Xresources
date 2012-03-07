@@ -70,10 +70,10 @@ Xcursor.theme: Vanilla-DMZ-AA
  
 ! readable bold characters:
 !
-!urxvt*font:	xft:Monaco:medium:pixelsize=10:autohint=true:antialias=false
-urxvt*font:	xft:Monaco:medium:pixelsize=14
+urxvt*font:	xft:Monaco:medium:pixelsize=13
+!urxvt*boldFont:	xft:Monaco:bold:pixelsize=13:autohint=true:antialias=true
  
-!rxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
 !urxvt*boldFont:xft:Envy Code R:bold:pixelsize=12:autohint=false:antialias=false
 
 !urxvt*font:xft:Dina:medium:pixelsize=14:autohint=false:antialias=false
@@ -102,7 +102,7 @@ urxvt*background: #121212
 urxvt*foreground: #ffffff
 urxvt.cursorColor:             gray
 urxvt.cursorColor2:            black
-urxvt*boldColors:off
+urxvt*boldColors: on
 
 ! color theme
 !
@@ -156,7 +156,10 @@ urxvt.perl-ext-common:  font,default,matcher
 !urxvt.perl-ext:         font
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
 urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+
+! not yet implemented
 urxvt.keysym.Control-Shift-Right:   perl:font:cycle-right
+! not yet implemented
 urxvt.keysym.Control-Shift-Left:    perl:font:cycle-left
 
 ! middle-click opens urls in chrome
