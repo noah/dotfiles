@@ -12,8 +12,8 @@ screen 0
         focus
         {
             fg = "#000000"
-            bg = "#535d6c"
-            border = "#535d6c"
+            bg = "#98b4d4"
+            border = "green"
         }
         urgent
         {
@@ -27,6 +27,7 @@ screen 0
         tag term    { }
         tag math    { }
         tag scrap   { }
+        tag music   { }
         tag chess   { }
     }
     layouts
@@ -202,6 +203,20 @@ mouse
 
 keys
 {
+    key
+    {
+        modkey = {"Mod1", "Control"}
+        key = "Up"
+        command = "spawn"
+        arg = "exec /usr/bin/amixer set Master 1%+"
+    }
+    key
+    {
+        modkey = {"Mod1", "Control"}
+        key = "Down"
+        command = "spawn"
+        arg = "exec /usr/bin/amixer set Master 1%-"
+    }
     key
     {
         modkey = {"Mod1"}
