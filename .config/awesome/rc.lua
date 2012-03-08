@@ -68,9 +68,7 @@ tag_names =
 {
   "web",
   "term",
-  "vim",
-  "diff",
-  "vbox",
+  "7be",
   "scrap",
 }
 
