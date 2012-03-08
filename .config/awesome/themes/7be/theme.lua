@@ -21,7 +21,7 @@ theme.fg_minimize   = "#ffffff"
 
 theme.border_width  = "1"
 theme.border_normal = "#000000"
-theme.border_focus  = "#b7f903"
+theme.border_focus  = "#dfff00"
 theme.border_marked = "#91231c"
 
 -- There are another variables sets
@@ -86,7 +86,7 @@ theme.layout_tileleft = "/home/noah/.config/awesome/themes/default/layouts/tilel
 theme.layout_tile = "/home/noah/.config/awesome/themes/default/layouts/tilew.png"
 theme.layout_tiletop = "/home/noah/.config/awesome/themes/default/layouts/tiletopw.png"
 
-theme.awesome_icon = "/home/noah/.config/awesome/icons/n0ah16.png"
+theme.awesome_icon = "/home/noah/.config/awesome/themes/7be/awesome-icon.png"
 
 return theme
 -- vim: filetype=lua

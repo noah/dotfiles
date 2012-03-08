@@ -41,7 +41,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
+-- However, you can use another modifier like Mod0, but it may interact with others.
 -- modkey = "Mod4"
 modkey = "Mod1"
 
@@ -64,13 +64,11 @@ layouts =
 -- }}}
 
 -- {{{ Tags
-tag_names = 
-{
-  "web",
-  "term",
-  "7be",
-  "scrap",
-}
+tag_names = {}
+
+for line in io.lines(table.concat({config_dir, "tags.txt"}, "/")) do
+  table.insert(tag_names, line)
+end
 
 -- number the tag names
 for T = 1, table.getn(tag_names) do
@@ -374,6 +372,8 @@ awful.rules.rules = {
     -- properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    { rule = { class = "xboard" },
+      properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
@@ -414,39 +414,26 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 
--- setup boxes for each screen
-mybwibox    = {}
-yaourtbox   = {}
-cmusbox     = {}
-volbox      = {}
-uptimebox   = {}
-solarkbbox  = {}
+delim       = ' '
 mybwibox    = awful.wibox({ position = "bottom", screen = 1})
-delim       = ' | '
 
--- create widget box layout for all screens
-for s=1, screen.count() do
-        yaourtbox   = widget({ 
-          type      = "textbox", 
-          layout    = awful.widget.layout.horizontal.leftright 
-        })
-        volbox      = widget({
-          type      = "textbox",
-          layout    =   awful.widget.layout.horizontal.leftright
-        })
-        cmusbox     = widget({ 
-          type      = "textbox", 
-          layout    = awful.widget.layout.horizontal.leftright
-        })
-        uptimebox   = widget({ 
-          type      = "textbox", 
-          layout    = awful.widget.layout.horizontal.leftright
-        })
-        kbbox       = widget({ type = "textbox", layout = awful.widget.layout.horizontal.leftright })
-        delimiter   = widget({ 
-          type      = "textbox",
-        })
-end
+yaourtbox   = widget({ type = "textbox", 
+  layout    = awful.widget.layout.horizontal.rightleft
+})
+volbox      = widget({ type = "textbox",
+  layout    = awful.widget.layout.horizontal.leftright
+})
+cmusbox     = widget({ type = "textbox", 
+  layout    = awful.widget.layout.horizontal.leftright
+})
+uptimebox   = widget({ type = "textbox", 
+  layout    = awful.widget.layout.horizontal.rightleft
+})
+kbbox       = widget({ type = "textbox", 
+  layout    = awful.widget.layout.horizontal.rightleft
+})
+
+delimiter   = widget({ type = "textbox" })
 
 mybwibox.widgets = {
         cmusbox,
@@ -473,7 +460,7 @@ timers = {
   -----------------------------------------------------------------------
   [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
   [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
-  [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
+  -- [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
   [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
   [function() return color(' yt ',  c)    .. run_script("yaourt.sh")   end] = { yaourtbox,  60*60 }
   -----------------------------------------------------------------------
