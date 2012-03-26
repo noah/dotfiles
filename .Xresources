@@ -71,7 +71,7 @@ Xcursor.theme: Vanilla-DMZ-AA
 ! readable bold characters:
 !
 !
-urxvt*font:	xft:Monaco:medium:pixelsize=16
+urxvt*font:	xft:Monaco:medium:pixelsize=14
 
 !urxvt*boldFont:	xft:Monaco:bold:pixelsize=13:autohint=true:antialias=true
  
@@ -102,7 +102,7 @@ xft.rgba: rgb
 urxvt*highlightColor:#444444
 urxvt*background: #121212
 urxvt*foreground: #ffffff
-urxvt.cursorColor:             gray
+urxvt.cursorColor:             #00b4ff
 urxvt.cursorColor2:            black
 urxvt*boldColors: on
 
