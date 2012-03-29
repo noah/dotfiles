@@ -9,3 +9,4 @@ text/x-tex=gvim.desktop
 appliation/pdf=evince.desktop
 image/jpeg=gqview.desktop
 text/x-python=gvim.desktop
+inode/directory=nautilus.desktop

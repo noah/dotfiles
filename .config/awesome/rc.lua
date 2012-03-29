@@ -423,7 +423,7 @@ yaourtbox   = widget({ type = "textbox",
 volbox      = widget({ type = "textbox",
   layout    = awful.widget.layout.horizontal.leftright
 })
-cmusbox     = widget({ type = "textbox", 
+musicbox    = widget({ type = "textbox", 
   layout    = awful.widget.layout.horizontal.leftright
 })
 uptimebox   = widget({ type = "textbox", 
@@ -436,7 +436,7 @@ kbbox       = widget({ type = "textbox",
 delimiter   = widget({ type = "textbox" })
 
 mybwibox.widgets = {
-        cmusbox,
+        musicbox,
         delimiter,
         volbox,
         delimiter,
@@ -458,7 +458,7 @@ timers = {
   --    *functions can be keys*
   --
   -----------------------------------------------------------------------
-  [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
+  [function() return color(' rd ',  c)    .. run_script("riddim.sh")   end] = { musicbox,    1     },
   [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
   -- [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
   [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
