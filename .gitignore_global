@@ -6,6 +6,7 @@
 *.o
 *.so
 *.pyc
+*.out
 
 # compressed
 *.7z
