@@ -29,14 +29,23 @@ urxvt*transpscrollbar:true
 
 Xcursor.theme: Vanilla-DMZ-AA
 
+urxvt*font:	xft:Monaco:pixelsize=14:antialias=false:hinting=true:medium
+urxvt*boldFont:	xft:Monaco:pixelsize=14:antialias=false:hinting=true:bold
+
+!urxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*boldFont:xft:Envy Code R:bold:pixelsize=12:autohint=false:antialias=false
+
+!urxvt*font:	xft:Dina:medium:pixelsize=35:autohint=false:antialias=false
+!urxvt*boldFont:	xft:Dina:bold:pixelsize=35:autohint=false:antialias=false
+!
 !urxvt*font: xft:Bitstream Vera Sans Mono:medium:pixelsize=12:autohint=true:antialias=false
 !urxvt*boldFont: xft:Bistream Vera Sans Mono:medium:pixelsize=12:autohint=true:antialias=false
 
-!urxvt*font: xft:Liberation Mono:medium:pixelsize=14:autohint=true:antialias=false
-!urxvt*boldFont: xft:Liberation Mono:medium:pixelsize=14:autohint=true:antialias=false
+!urxvt*font:	xft:Liberation Mono:medium:pixelsize=15:autohint=true:antialias=false
+!urxvt*boldFont:	xft:Liberation Mono:bold:pixelsize=15:autohint=true:antialias=false
 
 !urxvt*font:xft:ProggySquareTTSZ:medium:pixelsize=15:autohint=true:antialias=true
-!urxvt*boldFont:xft:ProggySquareTTSZ:medium:pixelsize=15:autohint=true:antialias=true
+!urxvt*boldFont:xft:ProggySquareTTSZ:bold:pixelsize=15:autohint=true:antialias=true
 
 !urxvt*font:xft:ProggyTinyTTSZ:medium:pixelsize=16:autohint=true:antialias=true
 !urxvt*boldFont:xft:ProggyTinyTTSZ:medium:pixelsize=16:autohint=true:antialias=true
@@ -51,36 +60,22 @@ Xcursor.theme: Vanilla-DMZ-AA
 !urxvt*boldFont:xft:ProFont:medium:pixelsize=13:autohint=false:antialias=false
 
 !urxvt*font:xft:Montecarlo:medium:pixelsize=12:autohint=false:antialias=false
-!urxvt*boldFont:xft:Montecarlo:medium:pixelsize=12:autohint=false:antialias=false
+!urxvt*boldFont:xft:Montecarlo:bold:pixelsize=12:autohint=false:antialias=false
 
-!urxvt*font:xft:Inconsolata:medium:pixelsize=14:autohint=true:antialias=true
-!urxvt*boldFont:xft:Inconsolata:medium:pixelsize=14:autohint=true:antialias=true
+!urxvt*font:	xft:Inconsolata:medium:pixelsize=17:autohint=true:antialias=true
+!urxvt*boldFont:	xft:Inconsolata:bold:pixelsize=17:autohint=true:antialias=true
 
 !urxvt*font:xft:Consolas:medium:pixelsize=12:autohint=true:antialias=true
 !urxvt*boldFont:xft:Consolas:medium:pixelsize=12:autohint=true:antialias=true
 
-!urxvt*font:	xft:DejaVu Sans Mono:medium:pixelsize=21:autohint=true:antialias=false
-!urxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=11:autohint=true:antialias=false
+!urxvt*font:	xft:DejaVu Sans Mono:medium:pixelsize=12:autohint=true:antialias=false
+!urxvt*boldFont:	xft:DejaVu Sans Mono:bold:pixelsize=12:autohint=true:antialias=false
 
 !urxvt*font:xft:ProggyCleanTTSZ:medium:pixelsize=15:autohint=true:antialias=false
 !urxvt*boldFont:xft:ProggyCleanTTSZ:bold:pixelsize=15:autohint=true:antialias=false
 
 !urxvt*font:	Terminus:medium:pixelsize=13:autohint=true:antialias=false
 !urxvt*boldFont:	xft:Terminus:bold:pixelsize=13:autohint=true:antialias=false
- 
-! readable bold characters:
-!
-!
-urxvt*font:	xft:Monaco:medium:pixelsize=14
-
-!urxvt*boldFont:	xft:Monaco:bold:pixelsize=13:autohint=true:antialias=true
- 
-!urxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
-!urxvt*boldFont:xft:Envy Code R:bold:pixelsize=12:autohint=false:antialias=false
-
-!urxvt*font:xft:Dina:medium:pixelsize=14:autohint=false:antialias=false
-!urxvt*boldFont:xft:Dina:bold:pixelsize=14:autohint=false:antialias=false
-
 
 /*
 *
@@ -110,7 +105,7 @@ urxvt*boldColors: on
 !
 ! todo: write a python script to output this
 !black
-urxvt*color0:    #6c6c6c
+urxvt*color0:    #0a0a0a
 ! red
 urxvt*color1:    #fe021d
 ! green
@@ -129,7 +124,7 @@ urxvt*color7:    #ffffff
 ! Bold
 
 ! black
-urxvt*color8:       #6c6c6c
+urxvt*color8:       #0a0a0a
 ! red
 urxvt*color9:       #fe021d
 ! green
@@ -144,7 +139,6 @@ urxvt*color13:      #b84eef
 urxvt*color14:      #5aeaf7
 ! white
 urxvt*color15:      #ffffff
-
 
 /*
 *       
