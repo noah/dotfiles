@@ -458,7 +458,7 @@ timers = {
   -----------------------------------------------------------------------
   [function() return color(' cm ',  c)    .. run_script("cmus.sh")     end] = { cmusbox,    1     },
   [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
-  [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
+  -- [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
   [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },
   [function() return color(' yt ',  c)    .. run_script("yaourt.sh")   end] = { yaourtbox,  60*60 }
   -----------------------------------------------------------------------
