@@ -27,7 +27,8 @@ urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 
-Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.theme: Vanilla-DMZ
+urxvt*boldColors: on
 
 urxvt*font:	xft:Monaco:pixelsize=14:antialias=false:hinting=true:medium
 urxvt*boldFont:	xft:Monaco:pixelsize=14:antialias=false:hinting=true:bold
@@ -99,7 +100,6 @@ urxvt*background: #121212
 urxvt*foreground: #ffffff
 urxvt.cursorColor:             #00b4ff
 urxvt.cursorColor2:            black
-urxvt*boldColors: on
 
 ! color theme
 !
