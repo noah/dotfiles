@@ -30,8 +30,8 @@ urxvt*transpscrollbar:true
 Xcursor.theme: Vanilla-DMZ
 urxvt*boldColors: on
 
-urxvt*font:	xft:Monaco:pixelsize=14:antialias=false:hinting=true:medium
-urxvt*boldFont:	xft:Monaco:pixelsize=14:antialias=false:hinting=true:bold
+urxvt*font:	xft:Monaco:pixelsize=18:antialias=false:hinting=true:medium
+urxvt*boldFont:	xft:Monaco:pixelsize=18:antialias=false:hinting=true:bold
 
 !urxvt*font:xft:Envy Code R:medium:pixelsize=12:autohint=false:antialias=false
 !urxvt*boldFont:xft:Envy Code R:bold:pixelsize=12:autohint=false:antialias=false

@@ -9,6 +9,9 @@ autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
 xmodmap ~/.Xmodmap
 
+# enable Ctrl+Alt+Backspace
+setxkbmap -option terminate:ctrl_alt_bksp
+
 /home/noah/bin/gnome-settings-daemon&
 
 urxvtd -q -f -o
