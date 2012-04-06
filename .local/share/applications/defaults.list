@@ -1,5 +1,5 @@
 [Default Applications]
-appliation/pdf=evince.desktop
+application/pdf=evince.desktop
 application/x-ruby=gvim.desktop
 application/x-shellscript=gvim.desktop
 image/jpeg=gqview.desktop
