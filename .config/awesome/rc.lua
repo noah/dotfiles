@@ -102,6 +102,10 @@ mymainmenu = awful.menu({
     { 
       "open terminal", 
       terminal
+    },
+    { 
+      "nautilus", 
+      "nautilus"
     }
   }
 })
@@ -362,23 +366,21 @@ root.keys(globalkeys)
 -- {{{ Rules
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons } },
-    -- { rule = { class = "MPlayer" },
-    -- properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "xboard" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    { rule = { },   properties = { 
+                        -- eliminate gaps between applications
+                        size_hints_honor = false,
+                        --
+                        border_width = beautiful.border_width,
+                        border_color = beautiful.border_normal,
+                        focus = true,
+                        keys = clientkeys,
+                        buttons = clientbuttons } },
+    -- { rule = { class = "MPlayer" },     properties = { floating = true } },
+    -- { rule = { class = "xboard" },      properties = { floating = true } },
+    { rule = { class = "pinentry" },    properties = { floating = true } },
+    { rule = { class = "gimp" },        properties = { floating = true } },
+    -- start application on [screen#][tag#] (doesn't work?)
+    -- { rule = { class = "google-chrome" }, properties = { tag = tags[1][5] } },
 }
 -- }}}
 
@@ -458,7 +460,7 @@ timers = {
   --    *functions can be keys*
   --
   -----------------------------------------------------------------------
-  -- [function() return color(' rd ',  c)    .. run_script("riddim.sh")   end] = { musicbox,    1     },
+  [function() return color(' cm ',  c)    .. run_script("cmus.sh")   end] = { musicbox,    1     },
   [function() return color(' vl ',  c)    .. run_script("volume.sh")   end] = { volbox,     1     },
   -- [function() return color(' kb ',  c)    .. run_script("kb.sh")       end] = { kbbox,      10    },
   [function() return color(' up ',  c)    .. run_script("uptime.sh")   end] = { uptimebox,  60    },

@@ -29,6 +29,6 @@ urxvtd -q -f -o
 # eeepc
 # xrandr -s 1920x1080
 
-exec awesome
+exec awesome 2>&1 > ~/startx-awesome.log
 #exec gnome-session
 #exec subtle
