@@ -33,3 +33,10 @@ Thumbs.db
 # editors
 *.swp
 *.swo
+
+# TeX
+*.log
+*.aux
+*.pdf
+*.toc
+*.loa
