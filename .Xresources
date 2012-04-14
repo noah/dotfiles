@@ -110,7 +110,7 @@ urxvt*boldColors: on
 !
 ! todo: write a python script to output this
 !black
-urxvt*color0:    #6c6c6c
+urxvt*color0:    #0a0a0a
 ! red
 urxvt*color1:    #fe021d
 ! green
@@ -129,7 +129,7 @@ urxvt*color7:    #ffffff
 ! Bold
 
 ! black
-urxvt*color8:       #6c6c6c
+urxvt*color8:       #0a0a0a
 ! red
 urxvt*color9:       #fe021d
 ! green
