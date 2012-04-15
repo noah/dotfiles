@@ -29,3 +29,10 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# TeX
+*.log
+*.aux
+*.pdf
+*.toc
+*.loa
