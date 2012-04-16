@@ -30,10 +30,6 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
-# editors
-*.swp
-*.swo
-
 # TeX
 *.log
 *.aux
