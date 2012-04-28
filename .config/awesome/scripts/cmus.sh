@@ -40,10 +40,10 @@ status() {
       echo "$status_symbol"
     else
       echo -n "♫ "
-      stream=$(echo "$cmus_remote_q" | grep "^file http" | cut -d' ' -f 2)
-      title=$(echo "$cmus_remote_q" | grep "^tag title" | cut -d' ' -f 3-)
+      stream=$(echo "$cmus_remote_q"    | grep "^file http" | cut -d' ' -f 2)
+      title=$(echo "$cmus_remote_q"     | grep "^tag title" | cut -d' ' -f 3-)
       if [[ -n "$stream" ]]; then
-        echo "streaming $stream ($title)"
+        echo "streaming {$title}"
         echo
       else
         echo "$(progress)$status_symbol $(play_stub)"
