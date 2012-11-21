@@ -43,8 +43,16 @@ status() {
     if [[ "$cmus_status" == 'status stopped' ]]; then
       echo "$status_symbol"
     else
-      echo "$(progress)$status_symbol $(play_stub)"
-      echo
+      echo -n "♫ "
+      stream=$(echo "$cmus_remote_q"    | grep "^file http" | cut -d' ' -f 2)
+      title=$(echo "$cmus_remote_q"     | grep "^tag title" | cut -d' ' -f 3-)
+      if [[ -n "$stream" ]]; then
+        echo "streaming {$title}"
+        echo
+      else
+        echo "$(progress)$status_symbol $(play_stub)"
+        echo
+      fi
     fi
   else
     echo 'not running'

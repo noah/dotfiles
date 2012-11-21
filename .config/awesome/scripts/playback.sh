@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # adjust playback of squeezebox server or cmus, depending upon which one
-# is currently playing =)  this is intended to be an awesome keyboard
+# is currently playing =)  this is intended to be an awesome-wm keyboard
 # shortcut callback
 #
 # I am soooooo lazy
@@ -10,9 +10,17 @@ if [[ $# -ne 1 ]]; then
   exit 1
 fi
 
-cmus-remote -Q > /dev/null
+cmus_status=$(cmus-remote -Q)
+
+# cmus is playing
 if [[ $? -eq 0 ]]; then
-  echo player-$1 | cmus-remote
+  cmus_status_stream=$(echo "$cmus_status" | grep "^file http:\/\/0x7be.org")
+  # cmus is streaming riddim server
+  if [[ -n "$cmus_status_stream" ]]; then
+    ~/bin/riddim -n 2>&1 > /dev/null &
+  else
+    echo player-$1 | cmus-remote &
+  fi
 else
   # scriptable consumer electronics are sooooooooooooooooooo rad
   # http://7be:9000/html/docs/cli-api.html?player=#mixer%20volume
