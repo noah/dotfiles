@@ -14,11 +14,15 @@ cmus_status=${CMUS[0]}
 status_symbol="${status_symbols[$cmus_status]}"
 
 play_stub(){
-  artist=${CMUS[4]}
-  album=${CMUS[5]}
-  title=${CMUS[6]}
+  artist=$(echo "$cmus_remote_q" | sed -n "/tag albumartist /s/tag albumartist //p")
+  # flac tags suck, hence:
+  if [[ -z "$artist" ]]; then
+    artist=$(echo "$cmus_remote_q" | sed -n "/tag artist /s/tag artist //p")
+  fi
+  album=$(echo "$cmus_remote_q" | sed -n "/tag album /s/tag album //p")
+  title=$(echo "$cmus_remote_q" | sed -n "/tag title /s/tag title //p")
   echo -n $(echo "$artist .. $album .. $title" | \
-    sed s'/tag \(artist\|album\|title\)[[:space:]]//g' | recode ..html)
+        sed s'/tag \(artist\|album\|title\)[[:space:]]//g' | recode ..html)
 }
 
 progress(){
