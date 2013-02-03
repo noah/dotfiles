@@ -1,38 +1,20 @@
 #!/bin/sh
 
 xrdb -merge $HOME/.Xdefaults
-
-#xscreensaver -no-splash &
-#gnome-power-manager&
-
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
 xmodmap ~/.Xmodmap
-
 # enable Ctrl+Alt+Backspace
 setxkbmap -option terminate:ctrl_alt_bksp
-
-/home/noah/bin/gnome-settings-daemon&
-
+/usr/lib/gnome-settings-daemon/gnome-settings-daemon&
+nm-applet&
+#pidgin&
 urxvtd -q -f -o
+start-pulseaudio-x11
+sudo /etc/cron.hourly/ntpupdate&
+urxvtd -q -o -f
+awsetbg -u feh -a -f /home/noah/background
 
-# 
-# N.B.: Fn+F7 on esq toggles external monitor
-if [[ $HOST -eq "esq" ]]; then
-  disper -S &
-fi
+#exec ck-launch-session dbus-launch gnome-session --session awesome "$@" > ~/logs/startx-wm.log 2>&1
+exec ck-launch-session dbus-launch awesome > ~/logs/startx-wm.log 2>&1
 
-#xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-#xrandr --addmode DVI-D-1 "1920x1080_60.00"
-#xrandr --output DVI-D-1 --mode 1920x1080_60.00
-#exec wmii
-#exec startkde
-#xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-#xrandr --addmode DVI-D-1 "1920x1080_60.00"
-#xrandr --output DVI-D-1 --mode 1920x1080_60.00
-# eeepc
-# xrandr -s 1920x1080
-
-exec awesome 2>&1 > ~/startx-awesome.log
-#exec gnome-session
-#exec subtle

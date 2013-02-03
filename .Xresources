@@ -41,7 +41,7 @@ Xcursor.theme: Vanilla-DMZ
 /* color & theme */
 
 ! fg/bg
-urxvt*highlightColor:#444444
+urxvt*highlightColor:#eeeeee
 urxvt*background: #121212
 urxvt*foreground: #ffffff
 urxvt.cursorColor:             #00b4ff
