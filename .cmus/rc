@@ -1,4 +1,12 @@
 set status_display_program=/home/noah/.cmus/cmuscrobbler.py
+
+# suckless playlist view
+#
+# default:
+# format_playlist= %-25%a %3n. %t%= %y %d 
+#
+set format_playlist= %-22%a %-22l %t%= %d 
+
 unbind common ^U
 unbind common ^D
 bind common ^U win-page-up
