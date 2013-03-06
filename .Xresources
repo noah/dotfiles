@@ -43,7 +43,7 @@ Xcursor.theme: Vanilla-DMZ
 ! fg/bg
 urxvt*highlightColor:#eeeeee
 urxvt*background: #121212
-urxvt*foreground: #ffffff
+urxvt*foreground: [95]#ffffff
 urxvt.cursorColor:             #00b4ff
 urxvt.cursorColor2:            black
 
@@ -107,3 +107,5 @@ urxvt.keysym.Control-Shift-Left:    perl:font:cycle-left
 ! middle-click opens urls in chrome
 urxvt.matcher.button:     2
 urxvt*urlLauncher: /usr/bin/google-chrome
+
+
