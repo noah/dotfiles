@@ -1,12 +1,2 @@
-[Default Applications]
-application/pdf=evince.desktop
-application/x-ruby=gvim.desktop
-application/x-shellscript=gvim.desktop
-image/jpeg=gqview.desktop
-inode/directory=nautilus.desktop
-text/html=chromium.desktop
-text/plain=gvim.desktop
-text/x-csrc=gvim.desktop
-text/x-java=gvim.desktop
-text/x-python=gvim.desktop
-text/x-tex=gvim.desktop
+[Default Applications]                                                                       
+text/x-c=gvim.desktop

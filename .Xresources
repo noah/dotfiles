@@ -6,13 +6,18 @@ urxvt.cursorUnderline: false
 
 urxvt*buffered:true
 urxvt*depth:32
-urxvt*fading:0
-urxvt*shading:0
+
+
+! percentage#bg-color
+!urxvt*background: #121212
+urxvt*foreground: #fff
+urxvt*background: [95]#000
+
+
 urxvt*visualBell:false
-urxvt*inheritPixmap:true
+!urxvt*inheritPixmap:true
 urxvt*borderLess:false
 urxvt*:scrollTtyKeypress: true
-urxvt*transparent:false
 
 urxvt*jumpScroll:true
 urxvt*loginShell:true
@@ -26,24 +31,14 @@ urxvt*scrollWithBuffer:     true
 urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
+urxvt*cutchars:        '"'()*<>[]{|}
 
 Xcursor.theme: Vanilla-DMZ
-
-! include file should have something like:
-!
-!   urxvt*boldColors: on
-!   urxvt*font:	xft:Monaco:pixelsize=17:antialias=true:hinting=true:medium
-!   urxvt*boldFont:	xft:Monaco:pixelsize=17:antialias=true:hinting=true:bold
-!
-!   include is relative to $HOME/
-#include ".config/xresources/fonts"
 
 /* color & theme */
 
 ! fg/bg
-urxvt*highlightColor:#eeeeee
-urxvt*background: #121212
-urxvt*foreground: [95]#ffffff
+urxvt*highlightColor:#444444
 urxvt.cursorColor:             #00b4ff
 urxvt.cursorColor2:            black
 
@@ -51,40 +46,41 @@ urxvt.cursorColor2:            black
 !
 ! todo: write a python script to output this
 !black
-urxvt*color0:    #0a0a0a
-! red
-urxvt*color1:    #fe021d
-! green
-urxvt*color2:    #00fc00
-! yellow
-urxvt*color3:    #fef500
-! blue
-urxvt*color4:    #00b4ff
-! magenta
-urxvt*color5:    #b84eef
-! cyan
-urxvt*color6:    #5aeaf7
-! white
-urxvt*color7:    #ffffff
-
-! Bold
-
-! black
-urxvt*color8:       #0a0a0a
-! red
-urxvt*color9:       #fe021d
-! green
-urxvt*color10:      #00fc00
-! yellow
-urxvt*color11:      #fef500
-! blue
-urxvt*color12:      #00b4ff
-! magenta
-urxvt*color13:      #b84eef
-! cyan
-urxvt*color14:      #5aeaf7
-! white
-urxvt*color15:      #ffffff
+!#include "gits/github/invisibone/invisibone"
+! urxvt*color0:    #0a0a0a
+! ! red
+! urxvt*color1:    #fe021d
+! ! green
+! urxvt*color2:    #00fc00
+! ! yellow
+! urxvt*color3:    #fef500
+! ! blue
+! urxvt*color4:    #00b4ff
+! ! magenta
+! urxvt*color5:    #b84eef
+! ! cyan
+! urxvt*color6:    #5aeaf7
+! ! white
+! urxvt*color7:    #ffffff
+! 
+! ! Bold
+! 
+! ! black
+! urxvt*color8:       #0a0a0a
+! ! red
+! urxvt*color9:       #fe021d
+! ! green
+! urxvt*color10:      #00fc00
+! ! yellow
+! urxvt*color11:      #fef500
+! ! blue
+! urxvt*color12:      #00b4ff
+! ! magenta
+! urxvt*color13:      #b84eef
+! ! cyan
+! urxvt*color14:      #5aeaf7
+! ! white
+! urxvt*color15:      #ffffff
 
 /*
 *       
@@ -93,7 +89,7 @@ urxvt*color15:      #ffffff
 urxvt.underlineURLs:      false
 urxvt.colorUL: #fef500
 
-urxvt.perl-lib:         /home/noah/.urxvt
+urxvt.perl-lib:         /home/noaht/.urxvt
 urxvt.perl-ext-common:  font,default,matcher
 !urxvt.perl-ext:         font
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
@@ -104,8 +100,17 @@ urxvt.keysym.Control-Shift-Right:   perl:font:cycle-right
 ! not yet implemented
 urxvt.keysym.Control-Shift-Left:    perl:font:cycle-left
 
-! middle-click opens urls in chrome
-urxvt.matcher.button:     2
+! left-click opens urls in chrome
 urxvt*urlLauncher: /usr/bin/google-chrome
+urxvt.matcher.button: 1
+urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!urxvt.matcher.rend.0: fg16 RS_Uline
 
-
+! include file should have something like:
+!
+!   urxvt*boldColors: on
+!   urxvt*font:	xft:Monaco:pixelsize=17:antialias=true:hinting=true:medium
+!   urxvt*boldFont:	xft:Monaco:pixelsize=17:antialias=true:hinting=true:bold
+!
+!   include is relative to $HOME/
+#include ".config/xresources/fonts"
