@@ -5,3 +5,5 @@ font=Monaco:style=Regular
 
 va=vaapi
 vo=vaapi
+
+volume=100
