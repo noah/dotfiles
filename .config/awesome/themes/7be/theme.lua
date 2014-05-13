@@ -9,20 +9,22 @@ theme.font          = "Monaco 8"
 theme.wallpaper_cmd = { "feh --bg-fill /home/noah/background" }
 -- theme.wallpaper_cmd = { "awsetbg -a /home/noah/lauves_bw.jpg" }   
 
+theme.fg_normal     = "#808080"
 theme.bg_normal     = "#121212"
-theme.bg_focus      = "#000000"
+
+theme.fg_focus      = "#000000"
+theme.bg_focus      = "#c2d73b"
+
+theme.fg_urgent     = "#ffffff"
 theme.bg_urgent     = "#ff0000"
+
+theme.fg_minimize   = "#ffffff"
 theme.bg_minimize   = "#444444"
 
-theme.fg_normal     = "#808080"
-theme.fg_focus      = "#d3d3d3"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
-
-theme.border_width  = "0"
+theme.border_width  = "1"
 theme.border_normal = "#000000"
-theme.border_focus  = "#dfff00"
-theme.border_marked = "#91231c"
+theme.border_focus  = "#c2d73b"
+theme.border_marked = "#cc9393"
 
 -- There are another variables sets
 -- overriding the default one when

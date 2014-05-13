@@ -5,7 +5,7 @@ set status_display_program=/home/noah/.cmus/cmuscrobbler.py
 # default:
 # format_playlist= %-25%a %3n. %t%= %y %d 
 #
-set format_playlist= %-22%a %-22l %t%= %d 
+set format_playlist= %-22%a %-80l %t%= %d [%{codec}] 
 
 unbind common ^U
 unbind common ^D

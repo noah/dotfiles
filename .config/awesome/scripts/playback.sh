@@ -14,12 +14,22 @@ cmus_status=$(cmus-remote -Q)
 
 # cmus is playing
 if [[ $? -eq 0 ]]; then
-  cmus_status_stream=$(echo "$cmus_status" | grep "^file http:\/\/0x7be.org")
+  cmus_status_stream=$(echo "$cmus_status" | grep "^file http:\/\/")
   # cmus is streaming riddim server
   if [[ -n "$cmus_status_stream" ]]; then
     ~/bin/riddim -n 2>&1 > /dev/null &
   else
-    echo player-$1 | cmus-remote &
+   case $1 in
+      "rew")
+          cmus-remote -k -5
+          ;;
+      "ffwd")
+          cmus-remote -k +5
+          ;;
+      *)
+      echo player-$1 | cmus-remote &
+      ;;
+    esac
   fi
 else
   # scriptable consumer electronics are sooooooooooooooooooo rad

@@ -12,10 +12,13 @@ fg_normal     = #aaaaaa
 fg_focus      = #ffffff
 fg_urgent     = #ffffff
 
-border_width  = 1
-border_normal = #000000
-border_focus  = #535d6c
-border_marked = #91231c
+border_width  = 3
+border_normal = #3f3f3f
+border_focus  = #d7005f
+border_marked = #cc9393
+
+titlebar_bf_focus   = #3f3f3f
+titlebar_bf_normal  = #3f3f3f
 
 # There are another variables sets
 # overriding the default one when
