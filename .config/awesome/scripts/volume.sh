@@ -5,7 +5,7 @@
 # this is intended to be an awesome keyboard shortcut callback
 #
 # Usage:
-#   ./volume.sh [+|-|]
+#   ./volume.sh [+|-]
 
 have_pulse="$(pgrep -u $(whoami) pulse)"
 
@@ -17,7 +17,8 @@ if [[ -n $have_pulse ]]; then
 
   # current volume in hex, strip '0x' prefix
   vol_max=65536
-  vol_dec=$(echo "ibase=16; $(pacmd dump|grep set-sink-volume|cut -d' ' -f 3|sed -e 's:^0x::'|tr '[a-f]' '[A-F]')"|bc)
+  vol_dec=$(echo "ibase=16; $(pacmd dump|grep set-sink-volume|cut -d' ' -f 3|sed -e 's:^0x::'|tr '[a-f]' '[A-F]')"|bc|head -1)
+
   # need fp division
   vol_pct=$(echo "scale=2;($vol_dec/$vol_max.0)*100" | bc)
 
@@ -25,7 +26,7 @@ if [[ -n $have_pulse ]]; then
     # print the volume level and die
     #echo -n "$(cut -d '[' -f 2 <<<"$(amixer get Master | tail -n 1)" | sed 's/%.*//g')%"
     # strip fp
-    echo -n "$vol_pct%" | sed 's:\.[[:digit:]]*::'
+    echo -n "$vol_pct" | sed 's:\.[[:digit:]]*::'
     exit 0
   fi
 
@@ -47,7 +48,7 @@ if [[ -n $have_pulse ]]; then
   # 
   # Fact:  PulseAudio was designed by monkeys.
   # 
-  if [[ "$dec_new_vol" -gt "$vol_max" ]]; then
+  if [[ $dec_new_vol -gt $vol_max ]]; then
     dec_new_vol="$vol_max"
   fi
   hex_new_vol="$(echo "ibase=10; obase=16; $dec_new_vol"|bc)"
