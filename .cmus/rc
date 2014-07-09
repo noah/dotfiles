@@ -11,3 +11,4 @@ unbind common ^U
 unbind common ^D
 bind common ^U win-page-up
 bind common ^D win-page-down
+view 3

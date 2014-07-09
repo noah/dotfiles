@@ -1,5 +1,7 @@
 [user]
+	name = Noah Tilton
 	email = noah@tilton.co
-	name = Noah K. Tilton
+[color]
+	ui = true
 [push]
 	default = simple

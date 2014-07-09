@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/home/noah/mail/noahktilton@gmail.com
+path=/home/noaht/mail/noaht@wolfram.com
 
 # User configuration
 #
@@ -29,9 +29,9 @@ path=/home/noah/mail/noahktilton@gmail.com
 # address to which the original email was addressed.
 #
 [user]
-name=Noah K. Tilton
-primary_email=noahktilton@gmail.com
-other_email=tilton@cs.uchicago.edu;tilton@uchicago.edu;noah@nktconsulting.com;binaural@gmail.com;
+name=Noah Tilton
+primary_email=noaht@wolfram.com
+other_email=noaht@wolframalpha.com;noahktilton.wri@gmail.com;
 
 # Configuration for "notmuch new"
 #
@@ -40,8 +40,27 @@ other_email=tilton@cs.uchicago.edu;tilton@uchicago.edu;noah@nktconsulting.com;bi
 #	tags	A list (separated by ';') of the tags that will be
 #		added to all messages incorporated by "notmuch new".
 #
+#	ignore	A list (separated by ';') of file and directory names
+#		that will not be searched for messages by "notmuch new".
+#
+#		NOTE: *Every* file/directory that goes by one of those names will
+#		be ignored, independent of its depth/location in the mail store.
+#
 [new]
 tags=unread;inbox;
+ignore=
+
+# Search configuration
+#
+# The following option is supported here:
+#
+#	exclude_tags
+#		A ;-separated list of tags that will be excluded from
+#		search results by default.  Using an excluded tag in a
+#		query will override that exclusion.
+#
+[search]
+exclude_tags=trash;
 
 # Maildir compatibility configuration
 #

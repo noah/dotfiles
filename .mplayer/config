@@ -1,7 +1,5 @@
 # Write your default config options here!
 
-stop-xscreensaver=1
-font=Monaco:style=Regular
 
 va=vaapi
 vo=vaapi
