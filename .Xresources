@@ -45,7 +45,7 @@ urxvt.cursorColor2:            black
 urxvt.underlineURLs:      false
 urxvt.colorUL: #fef500
 
-urxvt.perl-lib:         /home/noaht/.urxvt
+urxvt.perl-lib:         .urxvt
 urxvt.perl-ext-common:  font,default,matcher
 !urxvt.perl-ext:         font
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
