@@ -5,13 +5,7 @@ urxvt.cursorBlink:              true
 urxvt.cursorUnderline: false
 
 urxvt*buffered:true
-urxvt*depth:32
-
-
-! percentage#bg-color
-!urxvt*background: #121212
-urxvt*foreground: #fff
-urxvt*background: [95]#000
+!urxvt*depth:32
 
 
 urxvt*visualBell:false
@@ -42,45 +36,7 @@ urxvt*highlightColor:#444444
 urxvt.cursorColor:             #00b4ff
 urxvt.cursorColor2:            black
 
-! color theme
-!
-! todo: write a python script to output this
-!black
-!#include "gits/github/invisibone/invisibone"
-! urxvt*color0:    #0a0a0a
-! ! red
-! urxvt*color1:    #fe021d
-! ! green
-! urxvt*color2:    #00fc00
-! ! yellow
-! urxvt*color3:    #fef500
-! ! blue
-! urxvt*color4:    #00b4ff
-! ! magenta
-! urxvt*color5:    #b84eef
-! ! cyan
-! urxvt*color6:    #5aeaf7
-! ! white
-! urxvt*color7:    #ffffff
-! 
-! ! Bold
-! 
-! ! black
-! urxvt*color8:       #0a0a0a
-! ! red
-! urxvt*color9:       #fe021d
-! ! green
-! urxvt*color10:      #00fc00
-! ! yellow
-! urxvt*color11:      #fef500
-! ! blue
-! urxvt*color12:      #00b4ff
-! ! magenta
-! urxvt*color13:      #b84eef
-! ! cyan
-! urxvt*color14:      #5aeaf7
-! ! white
-! urxvt*color15:      #ffffff
+#include ".config/xresources/colors"
 
 /*
 *       
