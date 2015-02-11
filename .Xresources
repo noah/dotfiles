@@ -6,6 +6,13 @@ urxvt.cursorUnderline: false
 
 urxvt*buffered:true
 !urxvt*depth:32
+urxvt*depth:32
+
+
+! percentage#bg-color
+!urxvt*background: #121212
+urxvt*foreground: #fff
+urxvt*background: [95]#000
 
 
 urxvt*visualBell:false
@@ -27,7 +34,8 @@ urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
 urxvt*cutchars:        '"'()*<>[]{|}
 
-Xcursor.theme: Vanilla-DMZ
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 16
 
 /* color & theme */
 
@@ -45,7 +53,7 @@ urxvt.cursorColor2:            black
 urxvt.underlineURLs:      false
 urxvt.colorUL: #fef500
 
-urxvt.perl-lib:         .urxvt
+urxvt.perl-lib:         /home/noaht/.urxvt
 urxvt.perl-ext-common:  font,default,matcher
 !urxvt.perl-ext:         font
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
@@ -57,7 +65,7 @@ urxvt.keysym.Control-Shift-Right:   perl:font:cycle-right
 urxvt.keysym.Control-Shift-Left:    perl:font:cycle-left
 
 ! left-click opens urls in chrome
-urxvt*urlLauncher: /usr/bin/google-chrome
+urxvt*urlLauncher: /usr/bin/firefox
 urxvt.matcher.button: 1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 !urxvt.matcher.rend.0: fg16 RS_Uline
