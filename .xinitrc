@@ -20,7 +20,7 @@ setterm -blength 0
 
 xcompmgr -cF&
 
-start-pulseaudio-x11
+pulseaudio --start
 
 # /home/noah/bin/gnome-settings-daemon&
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon&
@@ -30,6 +30,8 @@ sudo /etc/cron.hourly/ntpupdate &
 urxvtd -q -f -o
 
 nm-applet&
+
+redshift-gtk&
 
 # 
 # N.B.: Fn+F7 on esq toggles external monitor

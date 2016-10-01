@@ -21,10 +21,10 @@ application/mathematica;                                                        
 
 # images
 image/*;                                                                            mutt_bgrun gqview '%s'
-image/jpeg;                                                                         mutt_bgrun gqview '%s'
+#image/*; ~/bin/muttimage.sh %s
 
 # html
-text/html;                                                                          w3m -I %{charset} -T text/html; copiousoutput;
+text/html;                                                                          w3m -I %{charset} -F -dump -T text/html %s; nametemplate=%s.html; copiousoutput
 text/html;                                                                          lynx -force_html %s
 text/html;                                                                          lynx -force_html -dump %s; copiousoutput
 
