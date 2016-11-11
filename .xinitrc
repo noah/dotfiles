@@ -18,7 +18,8 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # disable beep
 setterm -blength 0
 
-xcompmgr -cF&
+# xcompmgr -cF&
+compton -c &
 
 pulseaudio --start
 
