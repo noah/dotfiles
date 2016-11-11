@@ -1,0 +1,80 @@
+urxvt.internalBorder:   0
+urxvt.externalBorder:   0
+urxvt.urgentOnBell:             true
+urxvt.cursorBlink:              true
+urxvt.cursorUnderline: false
+
+urxvt*buffered:true
+!urxvt*depth:32
+urxvt*depth:32
+
+
+! percentage#bg-color
+!urxvt*background: #121212
+urxvt*foreground: #fff
+urxvt*background: [95]#000
+
+
+urxvt*visualBell:false
+!urxvt*inheritPixmap:true
+urxvt*borderLess:false
+urxvt*:scrollTtyKeypress: true
+
+urxvt*jumpScroll:true
+urxvt*loginShell:true
+urxvt*saveLines:65535
+urxvt*scrollBar_right:true
+urxvt*scrollBar:false
+urxvt*scrollstyle:plain
+urxvt*scrollTtyKeypress:    true
+urxvt*scrollTtyOutput:      false
+urxvt*scrollWithBuffer:     true
+urxvt*termName: rxvt-256color
+urxvt*transparentscrollbar:true
+urxvt*transpscrollbar:true
+urxvt*cutchars:        '"'()*<>[]{|}
+
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 16
+
+/* color & theme */
+
+! fg/bg
+urxvt*highlightColor:#444444
+urxvt.cursorColor:             #00b4ff
+urxvt.cursorColor2:            black
+
+#include ".config/xresources/colors"
+
+/*
+*       
+*       perl stuff
+* */
+urxvt.underlineURLs:      false
+urxvt.colorUL: #fef500
+
+urxvt.perl-lib:         /home/noah/.urxvt
+urxvt.perl-ext-common:  font,default,matcher
+!urxvt.perl-ext:         font
+urxvt.keysym.Control-Shift-Up:      perl:font:increment
+urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+
+! not yet implemented
+!urxvt.keysym.Control-Shift-Right:   perl:font:cycle-right
+! not yet implemented
+!urxvt.keysym.Control-Shift-Left:    perl:font:cycle-left
+
+! left-click opens urls in chrome
+urxvt*urlLauncher: /usr/bin/firefox
+urxvt.matcher.button: 1
+urxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!urxvt.matcher.rend.0: fg16 RS_Uline
+
+! include file should have something like:
+!
+!   urxvt*boldColors: on
+!   urxvt*font:	xft:Monaco:pixelsize=17:antialias=true:hinting=true:medium
+!   urxvt*boldFont:	xft:Monaco:pixelsize=17:antialias=true:hinting=true:bold
+!
+!   include is relative to $HOME/
+#include ".config/xresources/fonts"

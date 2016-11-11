@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/home/noaht/mail/noaht@wolfram.com
+path=/home/noah/mail/noah@tilton.co
 
 # User configuration
 #
@@ -30,8 +30,8 @@ path=/home/noaht/mail/noaht@wolfram.com
 #
 [user]
 name=Noah Tilton
-primary_email=noaht@wolfram.com
-other_email=noaht@wolframalpha.com;noahktilton.wri@gmail.com;
+primary_email=noah@tilton.co
+other_email=noahktilton@gmail.com;lists@tilton.co;guns@tilton.co;social@tilton.co
 
 # Configuration for "notmuch new"
 #

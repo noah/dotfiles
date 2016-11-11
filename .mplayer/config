@@ -1,7 +1,9 @@
 # Write your default config options here!
 
 
-va=vaapi
-vo=vaapi
+#va=vaapi
+#vo=vaapi
 
 volume=100
+heartbeat-cmd="xscreensaver-command -deactivate >&- 2>&- &"
+ao=pulse

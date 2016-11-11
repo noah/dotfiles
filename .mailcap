@@ -1,0 +1,33 @@
+# libreoffice
+application/msword;                                                                 mutt_bgrun libreoffice '%s'
+application/vnd.ms-excel;                                                           mutt_bgrun libreoffice '%s'
+application/vnd.oasis.opendocument.text;                                            mutt_bgrun libreoffice '%s'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document;            mutt_bgrun libreoffice '%s'
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;                  mutt_bgrun libreoffice '%s'
+application/vnd.wolfram.mathematica;                                                mutt_bgrun mathematica '%s'
+
+# rtf
+#application/rtf; unrtf %s | lynx -dump -force_html -stdin; copiousoutput
+application/rtf; unrtf %s | elinks -dump -force-html; copiousoutput
+application/rtf; unrtf --text %s ; copiousoutput
+
+# pdf
+application/pdf;                                                                    mutt_bgrun evince '%s'
+application/zip;                                                                    mutt_bgrun nautilus '%s'
+application/octet-stream;                                                           mutt_bgrun evince '%s'
+
+#
+application/mathematica;                                                            mutt_bgrun mathematica '%s'
+
+# images
+image/*;                                                                            mutt_bgrun gqview '%s'
+#image/*; ~/bin/muttimage.sh %s
+
+# html
+text/html;                                                                          w3m -I %{charset} -F -dump -T text/html %s; nametemplate=%s.html; copiousoutput
+text/html;                                                                          lynx -force_html %s
+text/html;                                                                          lynx -force_html -dump %s; copiousoutput
+
+# vcard
+text/x-vcard; mutt.vcard.filter; copiousoutput
+
