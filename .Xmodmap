@@ -1,0 +1,5 @@
+pointer = 1 2 3 5 4 7 6 8 9 10 11 12
+
+!map stupid chromebook search key to insert key ('cause stupid chrome
+!keyboard doesn't have an insert key)
+keycode 133 = Insert
