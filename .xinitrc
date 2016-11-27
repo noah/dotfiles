@@ -34,6 +34,8 @@ setterm -blength 0
 # xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
 compton -c&
 
+redshift-gtk&
+
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
