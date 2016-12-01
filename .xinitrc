@@ -4,7 +4,13 @@
 xset -b
 
 # natural scroll
-xinput set-button-map 11 1 2 3 5 4 6 7
+# xinput set-button-map 11 1 2 3 5 4 6 7
+# xmodmap ~/.Xmodmap
+
+# set natural scroll.  get id-only param from $ xinput list
+_mid=$(xinput list --id-only "Logitech M325") 
+xinput set-prop --type=int --format=32 $_mid "Evdev Scrolling Distance" -1 -1 -1
+# see http://forums.fedoraforum.org/showthread.php?t=298702
 
 
 # fix blue flash tint
@@ -23,7 +29,6 @@ nm-applet&
 
 autocutsel -selection CLIPBOARD -fork
 autocutsel -selection PRIMARY -fork
-xmodmap ~/.Xmodmap
 
 # enable Ctrl+Alt+Backspace
 setxkbmap -option terminate:ctrl_alt_bksp
