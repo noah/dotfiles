@@ -1,8 +1,0 @@
-#!/bin/sh
-
-url=https://patents.tilton.co/list/GMUtility/2016-01-26/
-http_code="$(curl -s -o /dev/null -w "%{http_code}" "$url")"
-
-if [[ "$http_code" -ne 200 ]]; then
-        echo $http_code
-fi
