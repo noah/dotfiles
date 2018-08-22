@@ -14,7 +14,6 @@ urxvt*depth:32
 urxvt*foreground: #fff
 urxvt*background: [95]#000
 
-
 urxvt*visualBell:false
 !urxvt*inheritPixmap:true
 urxvt*borderLess:false
@@ -32,7 +31,8 @@ urxvt*scrollWithBuffer:     true
 urxvt*termName: rxvt-256color
 urxvt*transparentscrollbar:true
 urxvt*transpscrollbar:true
-urxvt*cutchars:        '"'()*<>[]{|}
+! 
+urxvt*cutchars: 
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
